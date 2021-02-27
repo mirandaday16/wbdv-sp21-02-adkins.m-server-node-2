@@ -2,10 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 const CourseEditor = ({props}) =>
-    <div>
+    <div className="mda-page-content">
         <div class="container shadow mda-widget-window">
             {/*// Headline*/}
-            <h1 class="mda-h1">Course Editor: {this.props}
+            <h1 class="mda-h1">Course Editor
                 <i onClick={() => props.history.goBack()} className="fas fa-times-circle float-right"></i>
             </h1>
 

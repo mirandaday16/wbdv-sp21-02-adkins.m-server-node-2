@@ -42,10 +42,10 @@ class CourseManager extends React.Component {
                 this.setState((prevState) => ({
                     ...prevState,
                     courses: prevState
-                            .courses
-                            .filter(course => course !== courseToDelete)
+                        .courses
+                        .filter(course => course !== courseToDelete)
                 }))
-        })
+            })
     }
 
     updateCourse = (updatedCourse) => {
@@ -63,32 +63,35 @@ class CourseManager extends React.Component {
     render() {
         return (
             <div className="container-fluid mda-background">
-                <NavigationBar addCourse={this.addCourse}/>
-                <div className="mda-page-content">
 
-                    <Route path="/courses/table">
+
+                <Route path="/courses/table">
+                    <NavigationBar addCourse={this.addCourse}/>
+                    <div className="mda-page-content">
                         <CourseTable
                             courses={this.state.courses}
-                            addCourse = {this.addCourse}
-                            deleteCourse = {this.deleteCourse}
-                            updateCourse = {this.updateCourse}/>
-                    </Route>
+                            addCourse={this.addCourse}
+                            deleteCourse={this.deleteCourse}
+                            updateCourse={this.updateCourse}/>
+                    </div>
+                </Route>
 
-                    <Route path="/courses/grid">
+                <Route path="/courses/grid">
+                    <NavigationBar addCourse={this.addCourse}/>
+                    <div className="mda-page-content">
                         <CourseGrid
                             courses={this.state.courses}
-                            addCourse = {this.addCourse}
-                            deleteCourse = {this.deleteCourse}
-                            updateCourse = {this.updateCourse}/>
-                    </Route>
+                            addCourse={this.addCourse}
+                            deleteCourse={this.deleteCourse}
+                            updateCourse={this.updateCourse}/>
+                    </div>
+                </Route>
 
-                    <Route path="/courses/editor"
-                           render={(props) =>
-                               <CourseEditor
-                                   props={props}/>}>
-                    </Route>
+                <Route path="/courses/editor"
+                       render={(props) =>
+                               <CourseEditor props={props}/>}>
+                </Route>
 
-                </div>
             </div>
 
         )
