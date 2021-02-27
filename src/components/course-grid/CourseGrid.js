@@ -12,7 +12,11 @@ function CourseGrid({courses, addCourse, deleteCourse, updateCourse}) {
             <br/>
             <div className="row">
                 {courses.map(course =>
-                    <CourseCard course={course}/>
+                    <CourseCard
+                        course={course}
+                        updateCourse={updateCourse}
+                        deleteCourse={deleteCourse}
+                    />
                 )
                 }
             </div>
