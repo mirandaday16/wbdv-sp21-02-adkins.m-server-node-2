@@ -15,7 +15,8 @@ export default class CourseTable
                 <Link to="/courses/grid">
                     <i className="fas fa-2x fa-th float-right"></i>
                 </Link>
-                <h3 className="mda-h3">Course Table</h3>
+                <h1 className="mda-h1">Course Manager</h1>
+                <br/>
                 <table className="table">
                     <tbody>
                     {this.props.courses.map((course, ndx) =>

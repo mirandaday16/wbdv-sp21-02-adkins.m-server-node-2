@@ -8,7 +8,8 @@ function CourseGrid({courses, addCourse, deleteCourse, updateCourse}) {
             <Link to="/courses/table">
                 <i className="fas fa-2x fa-list float-right"></i>
             </Link>
-            <h3 className="mda-h3">Course Grid {courses.length}</h3>
+            <h1 className="mda-h1">Course Manager</h1>
+            <br/>
             <div className="row">
                 {courses.map(course =>
                     <CourseCard course={course}/>

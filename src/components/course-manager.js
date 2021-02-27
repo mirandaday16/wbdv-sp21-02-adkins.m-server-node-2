@@ -70,8 +70,6 @@ class CourseManager extends React.Component {
             <div className="container-fluid mda-background">
                 <NavigationBar addCourse={this.addCourse}/>
                 <div className="mda-page-content">
-                    <h1 className="mda-h1">Course Manager</h1>
-                    <button onClick={this.addCourse}>Add Course</button>
 
                     <Route path="/courses/table">
                         <CourseTable

@@ -16,7 +16,8 @@ export default class NavigationBar
                     <i className="fas fa-bars"></i>
                 </div>
                 <div className="col-3 d-none d-md-block mda-nav-bar-title">
-                    Your Courses
+                    <i className="fas mda-icon fa-chalkboard-teacher"></i>
+                    WhiteBoard
                 </div>
                 <div className="col-7">
                     <input className="form-control mda-center-in-div mda-body-text"
