@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext);
+@import url(http://fonts.googleapis.com/css?family=Arvo);
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +13,85 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Theme Colors */
+:root {
+  --surface: #FFFCF7;
+  --surface-dark: #FAF6ED;
+  --text: #191919;
+  --text-light: #525252;
+  --text-lightest: #C2C2C2;
+  --primary: #3E6259;
+  --primary-light: #9BC0B7;
+  --primary-dark: #273F39;
+  --secondary: #1D3B72;
+  --secondary-light: #4D7BD1;
+  --secondary-dark: #0E1C36;
+  --accent: #987D7C;
+  --accent-dark: #725B5A;
+  --danger: #92140C;
+  --danger-light: #F7A6A1;
+}
+
+.mda-background {
+  background-color: var(--surface);
+}
+
+.mda-page-content {
+  padding-top: 72px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.container-fluid {
+  padding: 0;
+}
+
+.mda-body-text {
+  color: var(--text);
+  font-family: "Lato", sans-serif;
+  font-weight: lighter;
+}
+
+.mda-h1 {
+  color: var(--primary);
+  font-family: "Arvo", sans-serif;
+  font-weight: bolder;
+  line-height: normal;
+}
+
+.mda-h3 {
+  color: var(--secondary);
+  font-family: "Arvo", sans-serif;
+  line-height: normal;
+}
+
+.mda-link-text {
+  font-family: "Lato", sans-serif;
+  font-style: oblique;
+}
+
+.mda-sticky-nav-bar {
+  background-color: var(--primary-light);
+  padding: 10px;
+  font-family: "Arvo", sans-serif;
+  color: var(--primary-dark);
+  font-weight: bold;
+  font-size: larger;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.mda-center-in-div {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+}
+
+.mda-nav-bar-title {
+  padding: 5px 0px;
+  text-align: center;
 }
