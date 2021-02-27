@@ -7,7 +7,7 @@ function CourseCard({course}) {
             <div className="card" style={{width: "18rem"}}>
                 <div className="card-body">
                     <h5 className="mda-h3">
-                        <i className="fas mda-icon fa-users"></i>
+                        <i className="fas mda-padded-icon fa-users"></i>
                         {course.title}
                     </h5>
                     <div className="mda-body-text">Owner: {course.owner}</div>

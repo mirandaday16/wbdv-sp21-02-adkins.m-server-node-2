@@ -6,7 +6,7 @@ function CourseGrid({courses, addCourse, deleteCourse, updateCourse}) {
     return (
         <div>
             <Link to="/courses/table">
-                <i className="fas fa-2x fa-list float-right"></i>
+                <i className="fas fa-2x fa-list mda-toggle-icon float-right"></i>
             </Link>
             <h1 className="mda-h1">Course Manager</h1>
             <br/>

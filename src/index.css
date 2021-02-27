@@ -70,7 +70,12 @@ code {
 
 .mda-link-text {
   font-family: "Lato", sans-serif;
-  font-style: oblique;
+  font-weight: bold;
+  color: var(--secondary)
+}
+
+.mda-link-text:hover {
+  color: var(--secondary-light)
 }
 
 .mda-sticky-nav-bar {
@@ -223,13 +228,29 @@ code {
   color: var(--surface);
 }
 
-.mda-icon {
+.mda-padded-icon {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.mda-clickable-icon:hover {
+  color: var(--primary);
+}
+
+.mda-toggle-icon {
+  color: var(--secondary)
+}
+
+.mda-toggle-icon:hover {
+  color: var(--secondary-light)
 }
 
 .mda-btn {
   background-color: var(--secondary);
   color: var(--surface);
   font-family: "Lato", sans-serif;
+}
+
+.mda-btn:hover {
+  color: var(--secondary-light)
 }

@@ -3,12 +3,11 @@ import {Link} from "react-router-dom";
 
 const CourseEditor = ({props}) =>
     <div>
-        <h3 className="mda-h3">
-            <i onClick={() => props.history.goBack()} className="fas fa-times float-right"></i>
-        </h3>
         <div class="container shadow mda-widget-window">
             {/*// Headline*/}
-            <h1 class="mda-h1">Course Editor</h1>
+            <h1 class="mda-h1">Course Editor: {this.props}
+                <i onClick={() => props.history.goBack()} className="fas fa-times-circle float-right"></i>
+            </h1>
 
             <div class="form-group row">
                 <label class="col-4 col-form-label"></label>

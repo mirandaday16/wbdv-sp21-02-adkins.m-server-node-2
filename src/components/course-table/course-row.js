@@ -15,32 +15,33 @@ const CourseRow = (
 
     const saveTitle = () => {
         setEditing(false)
-        const newCourse ={
+        const newCourse = {
             ...course,
             title: newTitle
         }
         updateCourse(newCourse)
     }
 
-    return (<tr>
-        <td>
-            {!editing && <Link to="/courses/editor">
-                {title}
-            </Link>}
-            {editing && <input
-                onChange={(event) => setNewTitle(event.target.value)}
-                value={newTitle}
-                className="form-control"/>}
-        </td>
-        <td>{owner}</td>
-        <td>{lastModified}</td>
-        <td>
-            <i onClick={() => deleteCourse(course)} className="fas mda-icon fa-trash"></i>
-            {editing && <i onClick={() => saveTitle()} className="fas mda-icon fa-check"></i>}
-            {!editing && <i onClick={() => setEditing(true)} className="fas mda-icon fa-edit"></i>}
-        </td>
+    return (
+        <tr className="mda-body-text">
+            <td>
+                {!editing && <Link to="/courses/editor" className="mda-link-text">
+                    {title}
+                </Link>}
+                {editing && <input
+                    onChange={(event) => setNewTitle(event.target.value)}
+                    value={newTitle}
+                    className="form-control"/>}
+            </td>
+            <td>{owner}</td>
+            <td>{lastModified}</td>
+            <td>
+                <i onClick={() => deleteCourse(course)} className="fas mda-padded-icon mda-clickable-icon fa-trash"></i>
+                {editing && <i onClick={() => saveTitle()} className="fas mda-padded-icon mda-clickable-icon fa-check"></i>}
+                {!editing && <i onClick={() => setEditing(true)} className="fas mda-padded-icon mda-clickable-icon fa-edit"></i>}
+            </td>
 
-    </tr>)
+        </tr>)
 }
 
 export default CourseRow

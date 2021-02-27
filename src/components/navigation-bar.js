@@ -16,14 +16,14 @@ export default class NavigationBar
                     <i className="fas fa-bars"></i>
                 </div>
                 <div className="col-3 d-none d-md-block mda-nav-bar-title">
-                    <i className="fas mda-icon fa-chalkboard-teacher"></i>
+                    <i className="fas mda-padded-icon fa-chalkboard-teacher"></i>
                     WhiteBoard
                 </div>
                 <div className="col-7">
                     <input className="form-control mda-center-in-div mda-body-text"
                            placeholder="New Course Name"/>
                 </div>
-                <div className="col-1  mda-center-in-div">
+                <div className="col-1  mda-center-in-div mda-clickable-icon">
                     <i onClick={this.props.addCourse} className="fas fa-plus-circle"></i>
                 </div>
             </div>
