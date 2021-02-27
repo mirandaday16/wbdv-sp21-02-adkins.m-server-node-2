@@ -68,7 +68,7 @@ class CourseManager extends React.Component {
     render() {
         return (
             <div className="container-fluid mda-background">
-                <NavigationBar/>
+                <NavigationBar addCourse={this.addCourse}/>
                 <div className="mda-page-content">
                     <h1 className="mda-h1">Course Manager</h1>
                     <button onClick={this.addCourse}>Add Course</button>
@@ -76,6 +76,7 @@ class CourseManager extends React.Component {
                     <Route path="/courses/table">
                         <CourseTable
                             courses={this.state.courses}
+                            addCourse = {this.addCourse}
                             deleteCourse = {this.deleteCourse}
                             updateCourse = {this.updateCourse}/>
                     </Route>
@@ -83,7 +84,9 @@ class CourseManager extends React.Component {
                     <Route path="/courses/grid">
                         <CourseGrid
                             courses={this.state.courses}
-                            deleteCourse = {this.deleteCourse}/>
+                            addCourse = {this.addCourse}
+                            deleteCourse = {this.deleteCourse}
+                            updateCourse = {this.updateCourse}/>
                     </Route>
 
                     <Route path="/courses/editor" render={(props) => <CourseEditor props={props}/>}>

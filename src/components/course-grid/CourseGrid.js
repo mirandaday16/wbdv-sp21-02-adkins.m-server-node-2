@@ -2,7 +2,7 @@ import React from "react";
 import CourseCard from "./CourseCard";
 import {Link} from "react-router-dom";
 
-function CourseGrid({courses}) {
+function CourseGrid({courses, addCourse, deleteCourse, updateCourse}) {
     return (
         <div>
             <Link to="/courses/table">
@@ -15,6 +15,7 @@ function CourseGrid({courses}) {
                 )
                 }
             </div>
+            <div className="fab" onClick={addCourse}><i className="fas fa-plus"></i></div>
         </div>
     );
 }

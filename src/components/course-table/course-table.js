@@ -33,6 +33,7 @@ export default class CourseTable
                     </tbody>
 
                 </table>
+                <div className="fab" onClick={this.props.addCourse}><i className="fas fa-plus"></i></div>
             </div>
         )
     }

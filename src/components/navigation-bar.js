@@ -3,6 +3,11 @@ import "../index.css";
 
 export default class NavigationBar
     extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div className="mda-sticky-nav-bar">
@@ -18,7 +23,7 @@ export default class NavigationBar
                            placeholder="New Course Name"/>
                 </div>
                 <div className="col-1  mda-center-in-div">
-                    <i className="fas fa-plus-circle"></i>
+                    <i onClick={this.props.addCourse} className="fas fa-plus-circle"></i>
                 </div>
             </div>
         </div>
