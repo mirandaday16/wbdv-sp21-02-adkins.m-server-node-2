@@ -33,8 +33,8 @@ const CourseRow = (
                     value={newTitle}
                     className="form-control"/>}
             </td>
-            <td>{owner}</td>
-            <td>{lastModified}</td>
+            <td className="d-none d-sm-table-cell">{owner}</td>
+            <td className="d-none d-xl-table-cell">{lastModified}</td>
             <td>
                 <i onClick={() => deleteCourse(course)} className="fas mda-padded-icon mda-clickable-icon fa-trash"></i>
                 {editing && <i onClick={() => saveTitle()} className="fas mda-padded-icon mda-clickable-icon fa-check"></i>}

@@ -15,8 +15,8 @@ function CourseCard({course, updateCourse, deleteCourse}) {
     }
 
     return(
-        <div className="col-3">
-            <div className="card" style={{width: "18rem"}}>
+        <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+            <div className="card" style={{width: "18rem", margin: "10px"}}>
                 <div className="card-body">
                     <h5 className="mda-h3">
                         <i className="fas mda-padded-icon fa-users"></i>
