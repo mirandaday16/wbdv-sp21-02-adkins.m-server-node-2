@@ -40,8 +40,8 @@ code {
 
 .mda-page-content {
   padding-top: 72px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 36px;
+  padding-right: 36px;
 }
 
 .container-fluid {
@@ -65,6 +65,7 @@ code {
   color: var(--secondary);
   font-family: "Arvo", sans-serif;
   line-height: normal;
+  font-weight: bold;
 }
 
 .mda-link-text {
@@ -225,4 +226,10 @@ code {
 .mda-icon {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.mda-btn {
+  background-color: var(--secondary);
+  color: var(--surface);
+  font-family: "Lato", sans-serif;
 }

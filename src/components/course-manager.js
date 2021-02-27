@@ -9,12 +9,7 @@ import courseService from "../services/course-service";
 class CourseManager extends React.Component {
 
     state = {
-        courses: [
-            {title: "CS1234", owner: "Felix", lastModified: "1/2/2021"},
-            {title: "CS2345", owner: "Ginny", lastModified: "2/3/2021"},
-            {title: "CS3456", owner: "Hriday", lastModified: "3/4/2021"},
-            {title: "CS4567", owner: "Isla", lastModified: "4/5/2021"}
-        ]
+        courses: []
     }
 
     componentDidMount() {
@@ -27,7 +22,7 @@ class CourseManager extends React.Component {
     addCourse = () => {
         const newCourse = {
             title: "New Course",
-            owner: "New Owner",
+            owner: "me",
             lastModified: "never"
         }
         courseService.createCourse(newCourse)
