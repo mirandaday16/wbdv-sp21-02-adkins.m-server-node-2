@@ -19,7 +19,7 @@ const ModuleList = (
 
 const stpm = (state) => {
     return {
-        myModules: state.modules
+        myModules: state.moduleReducer.modules
     }
 }
 
