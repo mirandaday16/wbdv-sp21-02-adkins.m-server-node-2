@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import ModuleList from "./module-list";
 
 const CourseEditor = ({props}) =>
     <div className="mda-page-content">
@@ -45,45 +46,7 @@ const CourseEditor = ({props}) =>
             <div class="row mda-widget-body">
 
                 {/*// Left Side Menu*/}
-                <div class="col-4">
-                    <ul class="modules-list-group">
-                        <li class="list-group-item">
-                            <a href="#" >
-                                Module 1 - jQuery
-                            </a>
-                        </li>
-                        <li class="list-group-item active">
-                            <a href="#">
-                                Module 2 - React
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                Module 3 - Redux
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                Module 4 - Native
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                Module 5 - Angular
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                Module 6 - Node
-                            </a>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                Module 7 - Mongo
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                <ModuleList/>
 
                 {/*// Pills Menu*/}
                 <div class="col-8 mda-page-background">
