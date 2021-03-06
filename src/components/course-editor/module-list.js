@@ -1,49 +1,29 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import moduleReducer from "../../reducers/modules-reducer";
 
 const ModuleList = (
-    {}) => {
+    {myModules = []}) =>
 
-    return(
-            <div className="col-4">
-                <ul className="modules-list-group">
-                    <li className="list-group-item">
-                        <a href="#">
-                            Module 1 - jQuery
-                        </a>
+    <div className="col-4">
+        <ul className="modules-list-group">
+            {
+                myModules.map(module =>
+                    <li className='list-group-item'>
+                        {module.title}
                     </li>
-                    <li className="list-group-item active">
-                        <a href="#">
-                            Module 2 - React
-                        </a>
-                    </li>
-                    <li className="list-group-item">
-                        <a href="#">
-                            Module 3 - Redux
-                        </a>
-                    </li>
-                    <li className="list-group-item">
-                        <a href="#">
-                            Module 4 - Native
-                        </a>
-                    </li>
-                    <li className="list-group-item">
-                        <a href="#">
-                            Module 5 - Angular
-                        </a>
-                    </li>
-                    <li className="list-group-item">
-                        <a href="#">
-                            Module 6 - Node
-                        </a>
-                    </li>
-                    <li className="list-group-item">
-                        <a href="#">
-                            Module 7 - Mongo
-                        </a>
-                    </li>
-                </ul>
-            </div>
-    )
+                )
+            }
+        </ul>
+    </div>
+
+const stpm = (state) => {
+    return {
+        myModules: state.modules
+    }
 }
 
-export default ModuleList;
+const dtpm = (dispatch) => {}
+
+export default connect(stpm, dtpm)
+(ModuleList)
