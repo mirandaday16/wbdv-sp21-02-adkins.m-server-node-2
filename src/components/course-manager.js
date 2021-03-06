@@ -1,7 +1,7 @@
 import React from "react";
 import CourseTable from "./course-table/course-table";
 import CourseGrid from "./course-grid/CourseGrid";
-import CourseEditor from "./course-editor";
+import CourseEditor from "./course-editor/course-editor";
 import NavigationBar from "./navigation-bar";
 import {Route, Link} from "react-router-dom";
 import courseService from "../services/course-service";
