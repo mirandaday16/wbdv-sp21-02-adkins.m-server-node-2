@@ -3,11 +3,7 @@ import {connect} from 'react-redux'
 
 const LessonTabs = (
     {
-        lessons=[
-            {_id: "123", title: "Lesson A"},
-            {_id: "456", title: "Lesson B"},
-            {_id: "789", title: "Lesson C"},
-        ]
+        lessons=[]
     }) =>
     <div className="col-8">
         <ul className="nav nav-tabs justify-content-end">
@@ -27,4 +23,5 @@ const stpm = (state) => ({
 
 const dtpm = (dispatch) => ({})
 
-export default connect()(LessonTabs)
+export default connect(stpm, dtpm)
+(LessonTabs)

@@ -7,7 +7,13 @@ const initialState = {
 }
 
 const lessonReducer = (state=initialState, action) => {
-    return state;
+    switch (action.type) {
+        case 'CREATE_MODULE':
+        case 'DELETE_MODULE':
+        case 'UPDATE_MODULE':
+        default:
+            return state
+    }
 }
 
 export default lessonReducer

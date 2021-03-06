@@ -4,11 +4,7 @@ import topicReducer from "../../reducers/topic-reducer";
 
 const TopicPills = (
     {
-        topics=[
-            {_id: "123", title: "Topic A"},
-            {_id: "456", title: "Topic B"},
-            {_id: "789", title: "Topic C"},
-        ]
+        topics=[]
     }) =>
     <div className="col-8 mda-page-background">
         <ul className="nav nav-pills justify-content-end pills-section-underlined">
