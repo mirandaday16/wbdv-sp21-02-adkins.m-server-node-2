@@ -6,11 +6,14 @@ import lessonReducer from "../../reducers/lesson-reducer";
 import {combineReducers, createStore} from "redux";
 import {Provider} from "react-redux";
 import LessonTabs from "./lesson-tabs";
+import TopicPills from "./topic-pills";
+import topicReducer from "../../reducers/topic-reducer";
 
 // const store = createStore(moduleReducer)
 const reducer = combineReducers({
     moduleReducer: moduleReducer,
-    lessonReducer: lessonReducer
+    lessonReducer: lessonReducer,
+    topicReducer: topicReducer
 })
 
 const store = createStore(reducer)
@@ -26,38 +29,11 @@ const CourseEditor = ({props}) =>
 
                 <div class="form-group row">
                     <label class="col-4 col-form-label"></label>
-                    {/*// Tab Menu*/}
                     <LessonTabs/>
                 </div>
-
                 <div class="row mda-widget-body">
-
-                    {/*// Left Side Menu*/}
                     <ModuleList/>
-
-                    {/*// Pills Menu*/}
-                    <div class="col-8 mda-page-background">
-                        <ul class="nav nav-pills justify-content-end pills-section-underlined">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Topic 1</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Topic 2</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Topic 3</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Topic 4</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">
-                                    <i class="fas fa-plus"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
+                    <TopicPills/>
                     {/*// Content intentionally left blank!*/}
                 </div>
             </div>
