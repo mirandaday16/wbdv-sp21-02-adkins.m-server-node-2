@@ -1,0 +1,14 @@
+const TOPICS_FOR_LESSON_URL = 'https://wbdv-generic-server.herokuapp.com/api/YOUR_NEUID/lessons/LESSON_ID/topics';
+const TOPICS_URL = 'https://wbdv-generic-server.herokuapp.com/api/YOUR_NEUID/topics/TOPIC_ID';
+
+// These two functions require the context of a specific lesson
+export const createTopic = (lessonId, topic) => {}
+
+export const findTopicsForLesson = (lessonId) => {}
+
+// The remaining functions call on topics without context
+export const findTopic = (topicId) => {}
+
+export const updateTopic = (topicId) => {}
+
+export const deleteTopic = (topicId) => {}
