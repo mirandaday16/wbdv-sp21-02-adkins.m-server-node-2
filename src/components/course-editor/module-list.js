@@ -1,11 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import moduleReducer from "../../reducers/modules-reducer";
+import EditableItem from "../editable-item";
 
 const ModuleList = (
     {
         myModules = [],
-        createModule=() => alert("Create Module 234")
+        createModule=() => alert("Create Module 234"),
+        deleteModule=(item) => alert(`delete ${item._id}`)
     }) =>
 
     <div className="col-4">
@@ -13,7 +14,10 @@ const ModuleList = (
             {
                 myModules.map(module =>
                     <li className='list-group-item'>
-                        {module.title}
+                        <EditableItem
+                            item={module}
+                            deleteItem={deleteModule}>
+                        </EditableItem>
                     </li>
                 )
             }
@@ -31,7 +35,10 @@ const stpm = (state) => {
 
 const dtpm = (dispatch) => {
     return {
-        createModule: () => dispatch({type: 'CREATE_MODULE'})
+        createModule: () => dispatch({type: 'CREATE_MODULE'}),
+        deleteModule: (item) => dispatch({
+            type: 'DELETE_MODULE',
+            moduleToDelete: item})
     }
 }
 

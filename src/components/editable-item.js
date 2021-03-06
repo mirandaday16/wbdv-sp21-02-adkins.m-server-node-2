@@ -1,13 +1,35 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const EditableItem = (
     {
-        item={
+        deleteItem,
+        item = {
             title: "Some Title",
-            _id: "ABC"}
+            _id: "ABC"
+        }
     }) => {
+    const [editing, setEditing] = useState(false)
     return (
-        <span className="mda-body-text">{item.title}</span>
+        <>
+            {
+                !editing &&
+                <>
+                    <a className="mda-link-text" href="#">
+                        {item.title}
+                    </a>
+                    <i onClick={() => setEditing(true)} className='fas fa-edit'></i>
+                </>
+            }
+            {
+                editing &&
+                <>
+                    <input/>
+                    <i onClick={() => setEditing(false)} className='fas fa-check'></i>
+                    <i onClick={() => deleteItem(item)} className='fas fa-times'></i>
+                </>
+            }
+
+        </>
     )
 }
 
