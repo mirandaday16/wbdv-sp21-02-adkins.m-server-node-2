@@ -5,8 +5,8 @@ import EditableItem from "../editable-item";
 const LessonTabs = (
     {
         lessons=[],
-        createLesson=() => alert("Create Lesson 234"),
-        deleteLesson=(item) => alert(`delete ${item._id}`)
+        createLesson,
+        deleteLesson
     }) =>
 
     <div className="col-8">

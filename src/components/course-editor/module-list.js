@@ -5,8 +5,8 @@ import EditableItem from "../editable-item";
 const ModuleList = (
     {
         myModules = [],
-        createModule=() => alert("Create Module 234"),
-        deleteModule=(item) => alert(`delete ${item._id}`)
+        createModule,
+        deleteModule
     }) =>
 
     <div className="col-4">
