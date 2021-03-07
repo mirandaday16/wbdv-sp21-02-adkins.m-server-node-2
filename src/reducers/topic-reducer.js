@@ -9,7 +9,7 @@ const initialState = {
 const topicReducer = (state=initialState, action) => {
     switch (action.type) {
         case 'CREATE_TOPIC':
-            const newState ={
+            return {
                 topics: [
                     ...state.topics,
                     {
@@ -18,7 +18,6 @@ const topicReducer = (state=initialState, action) => {
                     }
                 ]
             }
-            return newState
         case 'DELETE_TOPIC':
             return {
                 topics: state.topics.filter(topic => {
@@ -26,6 +25,15 @@ const topicReducer = (state=initialState, action) => {
                 })
             }
         case 'UPDATE_TOPIC':
+            return {
+                topics: state.topics.map(topic => {
+                    if(topic._id === action.topic._id) {
+                        return action.topic
+                    } else {
+                        return topic
+                    }
+                })
+            }
         default:
             return state
     }

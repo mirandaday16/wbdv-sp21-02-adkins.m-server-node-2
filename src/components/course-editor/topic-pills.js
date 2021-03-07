@@ -7,7 +7,8 @@ const TopicPills = (
     {
         topics=[],
         createTopic,
-        deleteTopic
+        deleteTopic,
+        updateTopic
     }) =>
     <div className="col-8 mda-page-background">
         <ul className="nav nav-pills justify-content-end pills-section-underlined">
@@ -17,7 +18,8 @@ const TopicPills = (
                         <a className="nav-link" href="#">
                             <EditableItem
                                 item={topic}
-                                deleteItem={deleteTopic}>
+                                deleteItem={deleteTopic}
+                                updateItem={updateTopic}>
                             </EditableItem>
                         </a>
                     </li>
@@ -36,7 +38,12 @@ const dtpm = (dispatch) => ({
     createTopic: () => dispatch({type: 'CREATE_TOPIC'}),
     deleteTopic: (item) => dispatch({
         type: 'DELETE_TOPIC',
-        topicToDelete: item})
+        topicToDelete: item
+    }),
+    updateTopic: (topic) => dispatch({
+        type: 'UPDATE_TOPIC',
+        topic
+    })
 })
 
 export default connect(stpm, dtpm)

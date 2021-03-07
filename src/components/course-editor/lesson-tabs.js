@@ -6,7 +6,8 @@ const LessonTabs = (
     {
         lessons=[],
         createLesson,
-        deleteLesson
+        deleteLesson,
+        updateLesson
     }) =>
 
     <div className="col-8">
@@ -17,7 +18,8 @@ const LessonTabs = (
                         <a className="nav-link" aria-current="page" href="#">
                             <EditableItem
                                 item={lesson}
-                                deleteItem={deleteLesson}>
+                                deleteItem={deleteLesson}
+                                updateItem={updateLesson}>
                             </EditableItem>
                         </a>
                     </li>
@@ -34,7 +36,11 @@ const dtpm = (dispatch) => ({
     createLesson: () => dispatch({type: 'CREATE_LESSON'}),
     deleteLesson: (item) => dispatch({
         type: 'DELETE_LESSON',
-        lessonToDelete: item})
+        lessonToDelete: item}),
+    updateLesson: (lesson) => dispatch({
+        type: 'UPDATE_LESSON',
+        lesson
+    })
 })
 
 export default connect(stpm, dtpm)
