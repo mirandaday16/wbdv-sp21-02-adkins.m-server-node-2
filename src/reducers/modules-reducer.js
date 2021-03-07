@@ -9,7 +9,7 @@ const initialState = {
 const moduleReducer = (state=initialState, action) => {
     switch (action.type) {
         case 'CREATE_MODULE':
-            const newStateafterCreate ={
+            return {
                 modules: [
                     ...state.modules,
                     {
@@ -18,15 +18,22 @@ const moduleReducer = (state=initialState, action) => {
                     }
                 ]
             }
-            return newStateafterCreate
         case 'DELETE_MODULE':
-            const newStateAfterDelete = {
+            return {
                 modules: state.modules.filter(module => {
                     return module._id !== action.moduleToDelete._id;
                 })
             }
-            return newStateAfterDelete
         case 'UPDATE_MODULE':
+            return {
+                modules: state.modules.map(module => {
+                    if(module._id === action.module._id) {
+                        return action.module
+                    } else {
+                        return module
+                    }
+                })
+            }
         default:
             return state
     }

@@ -6,7 +6,8 @@ const ModuleList = (
     {
         myModules = [],
         createModule,
-        deleteModule
+        deleteModule,
+        updateModule
     }) =>
 
     <div className="col-4">
@@ -16,6 +17,7 @@ const ModuleList = (
                     <li className='list-group-item'>
                         <EditableItem
                             item={module}
+                            updateItem={updateModule}
                             deleteItem={deleteModule}>
                         </EditableItem>
                     </li>
@@ -38,7 +40,11 @@ const dtpm = (dispatch) => {
         createModule: () => dispatch({type: 'CREATE_MODULE'}),
         deleteModule: (item) => dispatch({
             type: 'DELETE_MODULE',
-            moduleToDelete: item})
+            moduleToDelete: item}),
+        updateModule: (module) => dispatch({
+            type: 'UPDATE_MODULE',
+            module
+        })
     }
 }
 
