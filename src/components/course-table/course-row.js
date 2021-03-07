@@ -25,13 +25,18 @@ const CourseRow = (
     return (
         <tr className="mda-body-text">
             <td>
-                {!editing && <Link to="/courses/editor" className="mda-link-text">
+                {
+                    !editing &&
+                    <Link to={`/courses/editor/${course._id}`} className="mda-link-text">
                     {title}
-                </Link>}
-                {editing && <input
+                </Link>
+                }
+                {
+                    editing && <input
                     onChange={(event) => setNewTitle(event.target.value)}
                     value={newTitle}
-                    className="form-control"/>}
+                    className="form-control"/>
+                }
             </td>
             <td className="d-none d-sm-table-cell">{owner}</td>
             <td className="d-none d-xl-table-cell">{lastModified}</td>

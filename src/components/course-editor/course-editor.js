@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import ModuleList from "./module-list";
 import moduleReducer from "../../reducers/modules-reducer";
 import lessonReducer from "../../reducers/lesson-reducer";
@@ -18,8 +18,9 @@ const reducer = combineReducers({
 
 const store = createStore(reducer)
 
-const CourseEditor = ({props}) =>
-    <Provider store={store}>
+const CourseEditor = ({props}) => {
+    const {courseId} = useParams();
+    return (<Provider store={store}>
         <div className="mda-page-content">
             <div class="container shadow mda-widget-window">
                 {/*// Headline*/}
@@ -38,6 +39,7 @@ const CourseEditor = ({props}) =>
                 </div>
             </div>
         </div>
-    </Provider>
+    </Provider>)
+}
 
 export default CourseEditor
