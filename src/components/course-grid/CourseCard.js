@@ -20,7 +20,7 @@ function CourseCard({course, updateCourse, deleteCourse}) {
                 <div className="card-body">
                     <h5 className="mda-h3">
                         <i className="fas mda-padded-icon fa-users"></i>
-                        {!editing && <Link to="/courses/editor" className="mda-link-text">
+                        {!editing && <Link to={`/courses/editor/${course._id}`} className="mda-link-text">
                             {course.title}
                         </Link>}
                         {editing && <input
