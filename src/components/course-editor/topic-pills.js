@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import topicReducer from "../../reducers/topic-reducer";
 import EditableItem from "../editable-item";
+import {Link, useParams} from "react-router-dom";
 
 const TopicPills = (
     {
@@ -9,8 +10,9 @@ const TopicPills = (
         createTopic,
         deleteTopic,
         updateTopic
-    }) =>
-    <div className="col-8 mda-page-background">
+    }) => {
+    // const {courseId, moduleId, lessonId} = useParams();
+    return (<div className="col-8 mda-page-background">
         <ul className="nav nav-pills justify-content-end pills-section-underlined">
             {
                 topics.map(topic =>
@@ -26,7 +28,8 @@ const TopicPills = (
                 )
             }
         </ul>
-    </div>
+    </div>)
+}
 
 const stpm = (state) => {
     return {
