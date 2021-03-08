@@ -15,7 +15,7 @@ const ModuleList = (
     const {courseId} = useParams();
     useEffect(() => {
         findModulesForCourse(courseId)
-    })
+    }, [])
     return (<div className="col-4">
         <ul className="modules-list-group">
             {
