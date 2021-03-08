@@ -23,11 +23,17 @@ export const findModule = (moduleId) => {}
 
 export const updateModule = (moduleId) => {}
 
-export const deleteModule = (moduleId) => {}
+export const deleteModule = (moduleId) =>
+    fetch(`${MODULES_URL}/${moduleId}`, {
+        method: "DELETE",
+    })
+        .then(response => response.json())
+
 
 const api = {
     createModule,
-    findModulesForCourse
+    findModulesForCourse,
+    deleteModule
 }
 
 export default api

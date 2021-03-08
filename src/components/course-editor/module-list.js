@@ -54,10 +54,13 @@ const dtpm = (dispatch) => {
                         module: moduleFromServer
                     }))
         },
-        deleteModule: (item) => dispatch({
-            type: 'DELETE_MODULE',
-            moduleToDelete: item
-        }),
+        deleteModule: (item) => {
+            moduleService.deleteModule(item._id)
+                .then(status => dispatch({
+                    type: 'DELETE_MODULE',
+                    moduleToDelete: item
+                }))
+        },
         updateModule: (module) => dispatch({
             type: 'UPDATE_MODULE',
             module
