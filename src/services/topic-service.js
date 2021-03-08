@@ -1,5 +1,5 @@
-const TOPICS_FOR_LESSON_URL = 'https://wbdv-generic-server.herokuapp.com/api/001367581/lessons/';
-const TOPICS_URL = 'https://wbdv-generic-server.herokuapp.com/api/001367581/topics/';
+const TOPICS_FOR_LESSON_URL = 'https://wbdv-generic-server.herokuapp.com/api/001367581/lessons';
+const TOPICS_URL = 'https://wbdv-generic-server.herokuapp.com/api/001367581/topics';
 
 // These two functions require the context of a specific lesson
 export const createTopic = (lessonId, topic) => {}

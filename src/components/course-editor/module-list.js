@@ -16,25 +16,26 @@ const ModuleList = (
     useEffect(() => {
         findModulesForCourse(courseId)
     }, [])
-    return (<div className="col-4">
-        <ul className="modules-list-group">
-            {
-                myModules.map(module =>
-                    <li className='list-group-item'>
-                        <EditableItem
-                            to={`/courses/editor/${courseId}/${module._id}`}
-                            item={module}
-                            updateItem={updateModule}
-                            deleteItem={deleteModule}>
-                        </EditableItem>
-                    </li>
-                )
-            }
-            <li onClick={createModule} className='list-group-item'>
-                <i className='fas fa-plus-circle'></i>
-            </li>
-        </ul>
-    </div>)
+    return (
+        <div className="col-4">
+            <ul className="modules-list-group">
+                {
+                    myModules.map(module =>
+                        <li className='list-group-item'>
+                            <EditableItem
+                                to={`/courses/editor/${courseId}/${module._id}`}
+                                item={module}
+                                updateItem={updateModule}
+                                deleteItem={deleteModule}>
+                            </EditableItem>
+                        </li>
+                    )
+                }
+                <li className='list-group-item'>
+                    <i onClick={() => createModule(courseId)} className='fas fa-plus-circle mda-toggle-icon'></i>
+                </li>
+            </ul>
+        </div>)
 }
 
 const stpm = (state) => {
@@ -45,10 +46,18 @@ const stpm = (state) => {
 
 const dtpm = (dispatch) => {
     return {
-        createModule: () => dispatch({type: 'CREATE_MODULE'}),
+        createModule: (courseId) => {
+            moduleService.createModule(courseId, {title: "New Module"})
+                .then(moduleFromServer =>
+                    dispatch({
+                        type: 'CREATE_MODULE',
+                        module: moduleFromServer
+                    }))
+        },
         deleteModule: (item) => dispatch({
             type: 'DELETE_MODULE',
-            moduleToDelete: item}),
+            moduleToDelete: item
+        }),
         updateModule: (module) => dispatch({
             type: 'UPDATE_MODULE',
             module
