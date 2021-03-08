@@ -61,10 +61,13 @@ const dtpm = (dispatch) => {
                     moduleToDelete: item
                 }))
         },
-        updateModule: (module) => dispatch({
-            type: 'UPDATE_MODULE',
-            module
-        }),
+        updateModule: (module) => {
+            moduleService.updateModule(module._id, module)
+                .then(status => dispatch({
+                    type: 'UPDATE_MODULE',
+                    module
+                }))
+        },
         findModulesForCourse: (courseId) => {
             moduleService.findModulesForCourse(courseId)
                 .then(modules => dispatch({

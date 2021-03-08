@@ -21,7 +21,16 @@ export const findModulesForCourse = (courseId) =>
 // The remaining functions call on modules without context
 export const findModule = (moduleId) => {}
 
-export const updateModule = (moduleId) => {}
+export const updateModule = (moduleId, module) =>
+    fetch(`${MODULES_URL}/${moduleId}`, {
+        method: "PUT",
+        body: JSON.stringify(module),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(response => response.json())
+
 
 export const deleteModule = (moduleId) =>
     fetch(`${MODULES_URL}/${moduleId}`, {
@@ -33,7 +42,8 @@ export const deleteModule = (moduleId) =>
 const api = {
     createModule,
     findModulesForCourse,
-    deleteModule
+    deleteModule,
+    updateModule
 }
 
 export default api
