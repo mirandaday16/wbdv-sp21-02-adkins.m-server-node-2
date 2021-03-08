@@ -1,16 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from "../editable-item";
 import {useParams} from 'react-router-dom';
+import moduleService from "../../services/module-service"
 
 const ModuleList = (
     {
         myModules = [],
         createModule,
         deleteModule,
-        updateModule
+        updateModule,
+        findModulesForCourse
     }) => {
     const {courseId} = useParams();
+    useEffect(() => {
+        findModulesForCourse(courseId)
+    })
     return (<div className="col-4">
         <ul className="modules-list-group">
             {
@@ -47,7 +52,14 @@ const dtpm = (dispatch) => {
         updateModule: (module) => dispatch({
             type: 'UPDATE_MODULE',
             module
-        })
+        }),
+        findModulesForCourse: (courseId) => {
+            moduleService.findModulesForCourse(courseId)
+                .then(modules => dispatch({
+                    type: "FIND_MODULES_FOR_COURSE",
+                    modules: modules
+                }))
+        }
     }
 }
 
