@@ -233,8 +233,16 @@ code {
   padding-right: 10px;
 }
 
+.mda-padding-vertical {
+  padding-top: 10px;
+}
+
+.mda-clickable-icon {
+  color: var(--primary)
+}
+
 .mda-clickable-icon:hover {
-  color: var(--primary);
+  color: var(--primary-light);
 }
 
 .mda-toggle-icon {

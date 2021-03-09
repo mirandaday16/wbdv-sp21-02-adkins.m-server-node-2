@@ -31,9 +31,9 @@ const ModuleList = (
                         </li>
                     )
                 }
-                <li className='list-group-item'>
-                    <i onClick={() => createModule(courseId)} className='fas fa-plus-circle mda-toggle-icon'></i>
-                </li>
+                {/*<li className='list-group-item'>*/}
+                    <i onClick={() => createModule(courseId)} className='fas fa-2x fa-plus-circle mda-toggle-icon mda-padding-vertical mda-center-in-div'></i>
+                {/*</li>*/}
             </ul>
         </div>)
 }

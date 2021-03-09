@@ -44,7 +44,7 @@ function CourseCard({course, updateCourse, deleteCourse}) {
                     <div className="mda-body-text">Owner: {course.owner}</div>
                     <div className="mda-body-text">Last Modified: {course.lastModified}</div>
                     <br/>
-                    <Link to="/courses/editor" className="btn mda-btn mda-center-in-div">Edit {course.title}
+                    <Link to={`/courses/editor/${course._id}`} className="btn mda-btn mda-center-in-div">Edit {course.title}
                     </Link>
                 </div>
             </div>
