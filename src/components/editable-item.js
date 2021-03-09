@@ -23,7 +23,7 @@ const EditableItem = (
                     </Link>
                     <i onClick={() =>
                         setEditing(true)
-                    } className='fas fa-edit'></i>
+                    } className='fas fa-edit mda-padded-icon'></i>
                 </>
             }
             {
@@ -40,10 +40,10 @@ const EditableItem = (
                         setEditing(false)
                         updateItem(cachedItem)
                     }
-                    } className='fas fa-check'></i>
+                    } className='fas fa-check mda-padded-icon'></i>
                     <i onClick={
                         () => deleteItem(item)
-                    } className='fas fa-times'></i>
+                    } className='fas fa-times mda-padded-icon'></i>
                 </>
             }
 
