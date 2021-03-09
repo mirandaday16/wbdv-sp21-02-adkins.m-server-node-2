@@ -55,7 +55,6 @@ const dtpm = (dispatch) => {
                         lesson: lessonFromServer
                     }))
         },
-        // TODO: Implement lesson creation on front end
         deleteLesson: (item) => {
             lessonService.deleteLesson(item._id)
                 .then(status => dispatch({
