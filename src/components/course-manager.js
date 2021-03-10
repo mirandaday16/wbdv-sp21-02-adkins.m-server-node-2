@@ -65,7 +65,7 @@ class CourseManager extends React.Component {
             <div className="container-fluid mda-background">
 
 
-                <Route path="/courses/table">
+                <Route path="/courses/table" exact={true}>
                     <NavigationBar addCourse={this.addCourse}/>
                     <div className="mda-page-content">
                         <CourseTable
@@ -76,7 +76,7 @@ class CourseManager extends React.Component {
                     </div>
                 </Route>
 
-                <Route path="/courses/grid">
+                <Route path="/courses/grid" exact={true}>
                     <NavigationBar addCourse={this.addCourse}/>
                     <div className="mda-page-content">
                         <CourseGrid
@@ -88,10 +88,10 @@ class CourseManager extends React.Component {
                 </Route>
 
                 <Route path={[
-                    "/courses/editor/:courseId",
-                    "/courses/editor/:courseId/:moduleId",
-                    "/courses/editor/:courseId/:moduleId/:lessonId",
-                    "/courses/editor/:courseId/:moduleId/:lessonId/:topicId",
+                    "/courses/:layout/editor/:courseId",
+                    "/courses/:layout/editor/:courseId/:moduleId",
+                    "/courses/:layout/editor/:courseId/:moduleId/:lessonId",
+                    "/courses/:layout/editor/:courseId/:moduleId/:lessonId/:topicId",
                 ]}
                        render={(props) =>
                                <CourseEditor props={props}/>}>

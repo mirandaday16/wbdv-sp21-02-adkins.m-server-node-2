@@ -13,7 +13,7 @@ function CourseCard({course, updateCourse, deleteCourse}) {
         }
         updateCourse(newCourse)
     }
-
+    const layout = "grid"
     return (
         <div className="col-xs-12 col-sm-6 col-md-4 col-lg-3">
             <div className="card" style={{width: "18rem", margin: "10px"}}>
@@ -22,7 +22,7 @@ function CourseCard({course, updateCourse, deleteCourse}) {
                         <i className="fas mda-padded-icon fa-users"></i>
                         {
                             !editing &&
-                            <Link to={`/courses/editor/${course._id}`} className="mda-link-text">
+                            <Link to={`/courses/${layout}/editor/${course._id}`} className="mda-link-text">
                                 {course.title}
                             </Link>
                         }
@@ -44,7 +44,7 @@ function CourseCard({course, updateCourse, deleteCourse}) {
                     <div className="mda-body-text">Owner: {course.owner}</div>
                     <div className="mda-body-text">Last Modified: {course.lastModified}</div>
                     <br/>
-                    <Link to={`/courses/editor/${course._id}`} className="btn mda-btn mda-center-in-div">Edit {course.title}
+                    <Link to={`/courses/${layout}/editor/${course._id}`} className="btn mda-btn mda-center-in-div">Edit {course.title}
                     </Link>
                 </div>
             </div>

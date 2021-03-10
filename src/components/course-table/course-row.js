@@ -21,13 +21,13 @@ const CourseRow = (
         }
         updateCourse(newCourse)
     }
-
+    const layout = "table"
     return (
         <tr className="mda-body-text">
             <td>
                 {
                     !editing &&
-                    <Link to={`/courses/editor/${course._id}`} className="mda-link-text">
+                    <Link to={`/courses/${layout}/editor/${course._id}`} className="mda-link-text">
                     {title}
                 </Link>
                 }

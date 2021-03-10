@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from "../editable-item";
-import {Link, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import topicsService from "../../services/topic-service"
 
 const TopicPills = (
@@ -16,12 +16,15 @@ const TopicPills = (
     useEffect(() => {
         findTopicsForLesson(lessonId)
     }, [moduleId, lessonId])
+    const location = useLocation();
+    const path = location["pathname"]
+    const layout = path.includes("grid") ? "grid" : "table"
     return (<div className="col-8 mda-page-background">
         <ul className="nav nav-pills justify-content-end pills-section-underlined">
             {
                 topics.map(topic =>
                             <EditableItem
-                                to={`/courses/editor/${courseId}/${moduleId}/${lessonId}/${topic._id}`}
+                                to={`/courses/${layout}/editor/${courseId}/${moduleId}/${lessonId}/${topic._id}`}
                                 item={topic}
                                 type="topic"
                                 itemId={topic._id}

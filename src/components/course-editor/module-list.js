@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from "../editable-item";
-import {useParams} from 'react-router-dom';
+import {useLocation, useParams} from 'react-router-dom';
 import moduleService from "../../services/module-service"
 
 const ModuleList = (
@@ -16,13 +16,16 @@ const ModuleList = (
     useEffect(() => {
         findModulesForCourse(courseId)
     }, [])
+    const location = useLocation();
+    const path = location["pathname"]
+    const layout = path.includes("grid") ? "grid" : "table"
     return (
         <div className="col-4">
             <ul className="modules-list-group">
                 {
                     myModules.map(module =>
                             <EditableItem
-                                to={`/courses/editor/${courseId}/${module._id}`}
+                                to={`/courses/${layout}/editor/${courseId}/${module._id}`}
                                 type="module"
                                 itemId={module._id}
                                 item={module}

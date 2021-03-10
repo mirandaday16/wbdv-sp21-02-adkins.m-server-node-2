@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import EditableItem from "../editable-item";
-import {Link, useParams} from "react-router-dom";
+import {Link, useLocation, useParams} from "react-router-dom";
 import lessonService from "../../services/lesson-service"
 
 const LessonTabs = (
@@ -16,12 +16,15 @@ const LessonTabs = (
     useEffect(() => {
         findLessonsForModule(moduleId)
     }, [moduleId])
+    const location = useLocation();
+    const path = location["pathname"]
+    const layout = path.includes("grid") ? "grid" : "table"
     return (<div className="col-8">
         <ul className="nav nav-tabs justify-content-end">
             {
                 lessons.map(lesson =>
                     <EditableItem
-                                to={`/courses/editor/${courseId}/${moduleId}/${lesson._id}`}
+                                to={`/courses/${layout}/editor/${courseId}/${moduleId}/${lesson._id}`}
                                 type="lesson"
                                 itemId={lesson._id}
                                 item={lesson}

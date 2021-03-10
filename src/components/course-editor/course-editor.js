@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, Route, useParams} from "react-router-dom";
+import {Link, Route, useLocation, useParams} from "react-router-dom";
 import ModuleList from "./module-list";
 import moduleReducer from "../../reducers/modules-reducer";
 import lessonReducer from "../../reducers/lesson-reducer";
@@ -28,25 +28,29 @@ const store = createStore(reducer)
 
 const CourseEditor = ({props}) => {
     const {courseId, moduleId} = useParams();
+    const location = useLocation();
+    const path = location["pathname"]
+    const goBackPath = path.includes("grid") ? "/courses/grid" : "/courses/table"
     return (<Provider store={store}>
         <div className="mda-page-content">
             <div class="container shadow mda-widget-window">
                 {/*// Headline*/}
                 <h1 className="mda-h1">Course Editor
-                    <i onClick={() => props.history.goBack()}
-                       className="fas fa-times-circle float-right mda-clickable-icon"></i>
+                    <Link to={goBackPath}>
+                    <i className="fas fa-times-circle float-right mda-clickable-icon"></i>
+                    </Link>
                 </h1>
 
                 <div class="form-group row">
                     <label class="col-4 col-form-label"></label>
-                    <Route path="/courses/editor/:courseId/:moduleId">
+                    <Route path="/courses/:layout/editor/:courseId/:moduleId">
                         {/*Should only be visible when a module is selected*/}
                         <LessonTabs props={props}/>
                     </Route>
                 </div>
                 <div class="row mda-widget-body">
                     <ModuleList props={props}/>
-                    <Route path="/courses/editor/:courseId/:moduleId/:lessonId">
+                    <Route path="/courses/:layout/editor/:courseId/:moduleId/:lessonId">
                         {/*Should only be visible when a lesson is selected*/}
                         <TopicPills props={props}/>
                     </Route>
