@@ -20,15 +20,14 @@ const TopicPills = (
         <ul className="nav nav-pills justify-content-end pills-section-underlined">
             {
                 topics.map(topic =>
-                    <li className='nav-item'>
-                        <a className="nav-link" href="#">
                             <EditableItem
+                                to={`/courses/editor/${courseId}/${moduleId}/${lessonId}/${topic._id}`}
                                 item={topic}
+                                type="topic"
+                                itemId={topic._id}
                                 deleteItem={deleteTopic}
                                 updateItem={updateTopic}>
                             </EditableItem>
-                        </a>
-                    </li>
                 )
             }
             <li className='nav-item'>

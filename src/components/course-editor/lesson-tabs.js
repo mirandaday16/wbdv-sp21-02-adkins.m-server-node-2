@@ -20,16 +20,14 @@ const LessonTabs = (
         <ul className="nav nav-tabs justify-content-end">
             {
                 lessons.map(lesson =>
-                    <li className='nav-item'>
-                        <Link className="nav-link" aria-current="page">
-                            <EditableItem
+                    <EditableItem
                                 to={`/courses/editor/${courseId}/${moduleId}/${lesson._id}`}
+                                type="lesson"
+                                itemId={lesson._id}
                                 item={lesson}
                                 deleteItem={deleteLesson}
                                 updateItem={updateLesson}>
                             </EditableItem>
-                        </Link>
-                    </li>
                 )
             }
             <li className='nav-item'>

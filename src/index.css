@@ -178,13 +178,12 @@ code {
 
 /* Pills */
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  background-color: var(--secondary);
+  background-color: var(--primary-light);
   font-family: "Lato", sans-serif;
 }
 
 .nav-pills a:hover {
-  background-color: var(--secondary-light);
-  color: var(--surface-dark);
+  color: var(--secondary-dark);
   font-family: "Lato", sans-serif;
 }
 
@@ -261,4 +260,8 @@ code {
 
 .mda-btn:hover {
   color: var(--secondary-light)
+}
+
+input {
+  font-family: "Lato", sans-serif;
 }

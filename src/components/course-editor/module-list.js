@@ -21,14 +21,14 @@ const ModuleList = (
             <ul className="modules-list-group">
                 {
                     myModules.map(module =>
-                        <li className='list-group-item'>
                             <EditableItem
                                 to={`/courses/editor/${courseId}/${module._id}`}
+                                type="module"
+                                itemId={module._id}
                                 item={module}
                                 updateItem={updateModule}
                                 deleteItem={deleteModule}>
                             </EditableItem>
-                        </li>
                     )
                 }
                 {/*<li className='list-group-item'>*/}

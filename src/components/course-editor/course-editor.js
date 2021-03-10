@@ -41,14 +41,14 @@ const CourseEditor = ({props}) => {
                     <label class="col-4 col-form-label"></label>
                     <Route path="/courses/editor/:courseId/:moduleId">
                         {/*Should only be visible when a module is selected*/}
-                        <LessonTabs/>
+                        <LessonTabs props={props}/>
                     </Route>
                 </div>
                 <div class="row mda-widget-body">
-                    <ModuleList/>
+                    <ModuleList props={props}/>
                     <Route path="/courses/editor/:courseId/:moduleId/:lessonId">
                         {/*Should only be visible when a lesson is selected*/}
-                        <TopicPills/>
+                        <TopicPills props={props}/>
                     </Route>
                     {/*// Content intentionally left blank!*/}
                 </div>
