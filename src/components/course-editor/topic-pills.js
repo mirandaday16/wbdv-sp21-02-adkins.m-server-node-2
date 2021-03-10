@@ -15,7 +15,7 @@ const TopicPills = (
     const {courseId, moduleId, lessonId} = useParams();
     useEffect(() => {
         findTopicsForLesson(lessonId)
-    }, [])
+    }, [moduleId, lessonId])
     return (<div className="col-8 mda-page-background">
         <ul className="nav nav-pills justify-content-end pills-section-underlined">
             {

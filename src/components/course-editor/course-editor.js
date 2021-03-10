@@ -8,7 +8,7 @@ import {Provider} from "react-redux";
 import LessonTabs from "./lesson-tabs";
 import TopicPills from "./topic-pills";
 import topicReducer from "../../reducers/topic-reducer";
-import courseService from '../../services/course-service'
+import moduleService from '../../services/module-service'
 
 // const store = createStore(moduleReducer)
 const reducer = combineReducers({
@@ -18,6 +18,13 @@ const reducer = combineReducers({
 })
 
 const store = createStore(reducer)
+
+// componentDidUpdate() {
+//     moduleService.findModulesForCourse()
+//         .then(modules => this.setState({
+//             modules
+//         }))
+// }
 
 const CourseEditor = ({props}) => {
     const {courseId, moduleId} = useParams();
