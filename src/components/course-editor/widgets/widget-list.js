@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
 import widgetsService from '../../../services/widget-service'
+import HeadingWidget from "./heading-widget";
+import ParagraphWidget from "./paragraph-widget";
 
 const WidgetList = (
     {
@@ -12,12 +14,18 @@ const WidgetList = (
     }, [])
     return(
         <div className="mda-widget-window">
-            <h3 className="mda-h3">Widget List</h3>
             <ul className="list-group">
                 {widgets.map(widget =>
                 <li className="list-group-item"
                     key={widget.id}>
-                    {widget.type}
+                    {
+                        widget.type === "HEADING" &&
+                            <HeadingWidget widget={widget}/>
+                    }
+                    {
+                        widget.type === "PARAGRAPH" &&
+                        <ParagraphWidget widget={widget}/>
+                    }
                 </li>
                 )}
             </ul>
