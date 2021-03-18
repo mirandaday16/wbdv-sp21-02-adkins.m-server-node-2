@@ -19,7 +19,8 @@ const TopicPills = (
     const location = useLocation();
     const path = location["pathname"]
     const layout = path.includes("grid") ? "grid" : "table"
-    return (<div className="col-8 mda-page-background">
+    return (
+        <>
         <ul className="nav nav-pills justify-content-end pills-section-underlined">
             {
                 topics.map(topic =>
@@ -37,7 +38,8 @@ const TopicPills = (
                 <i onClick={() => createTopic(lessonId)} className='fas fa-plus-circle mda-padded-icon mda-toggle-icon'></i>
             </li>
         </ul>
-    </div>)
+        </>
+    )
 }
 
 const stpm = (state) => {

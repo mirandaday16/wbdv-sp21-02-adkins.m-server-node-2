@@ -9,6 +9,7 @@ import LessonTabs from "./lesson-tabs";
 import TopicPills from "./topic-pills";
 import topicReducer from "../../reducers/topic-reducer";
 import moduleService from '../../services/module-service'
+import WidgetList from "./widgets/widget-list";
 
 // const store = createStore(moduleReducer)
 const reducer = combineReducers({
@@ -50,11 +51,13 @@ const CourseEditor = ({props}) => {
                 </div>
                 <div class="row mda-widget-body">
                     <ModuleList props={props}/>
+                    <div className="col-8 mda-page-background">
                     <Route path="/courses/:layout/editor/:courseId/:moduleId/:lessonId">
                         {/*Should only be visible when a lesson is selected*/}
                         <TopicPills props={props}/>
                     </Route>
-                    {/*// Content intentionally left blank!*/}
+                        <WidgetList/>
+                    </div>
                 </div>
             </div>
         </div>
