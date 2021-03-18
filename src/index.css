@@ -133,6 +133,8 @@ code {
 .mda-widget-window {
   background-color: var(--surface);
   padding: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .mda-dark-surface {

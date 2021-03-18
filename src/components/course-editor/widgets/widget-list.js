@@ -2,8 +2,8 @@ import React from 'react'
 
 const WidgetList = () => {
     return(
-        <div>
-            <h2>Widget List</h2>
+        <div className="mda-widget-window">
+            <h3 className="mda-h3">Widget List</h3>
         </div>
     )
 }
