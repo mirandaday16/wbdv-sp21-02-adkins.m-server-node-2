@@ -1,5 +1,5 @@
 ## CS 5610 Web Development
-* Spring 2021 | Instructor: José Annunziato *
+*Spring 2021 | Instructor: José Annunziato*
 
 Assignments in this repo:
 
