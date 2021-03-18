@@ -1,5 +1,5 @@
 const initialState = {
-    widgets: []
+    widgets: [1, 2, 3]
 }
 
 const widgetReducer = (state=initialState, action) => {
@@ -28,6 +28,11 @@ const widgetReducer = (state=initialState, action) => {
                 })
             }
         case 'FIND_WIDGETS_FOR_TOPIC':
+            return {
+                ...state,
+                widgets: action.widgets
+            }
+        case 'FIND_ALL_WIDGETS':
             return {
                 ...state,
                 widgets: action.widgets
