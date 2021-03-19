@@ -3,14 +3,17 @@ import {connect} from 'react-redux'
 import widgetsService from '../../../services/widget-service'
 import HeadingWidget from "./heading-widget";
 import ParagraphWidget from "./paragraph-widget";
+import {useParams} from 'react-router-dom'
 
 const WidgetList = (
     {
         widgets=[],
-        findAllWidgets
+        findAllWidgets,
+        findWidgetsForTopic
     }) => {
+    const {topicId} = useParams();
     useEffect(() => {
-        findAllWidgets()
+        findWidgetsForTopic()
     }, [])
     return(
         <div className="mda-widget-window">
@@ -44,6 +47,13 @@ const dtpm = (dispatch) => ({
         widgetsService.findAllWidgets()
             .then(widgets => dispatch({
                 type: "FIND_ALL_WIDGETS",
+                widgets: widgets
+            }))
+    },
+    findWidgetsForTopic: (topicId) => {
+        widgetsService.findWidgetsForTopic(topicId)
+            .then(widgets => dispatch({
+                type: "FIND_WIDGETS_FOR_TOPIC",
                 widgets: widgets
             }))
     }

@@ -2,7 +2,9 @@ const baseUrl = "http://localhost:8080/api"
 
 export const createWidget = (topicId, widget) => {}
 
-export const findWidgetsForTopic = (topicId) => {}
+export const findWidgetsForTopic = (topicId) =>
+    fetch(`${baseUrl}/topics/${topicId}/widgets`)
+        .then(response => response.json())
 
 export const findAllWidgets = () =>
     fetch(`${baseUrl}/widgets`)
