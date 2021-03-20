@@ -23,7 +23,11 @@ export const findWidgetById = (widgetId) => {}
 
 export const updateWidget = (widgetId, widget) => {}
 
-export const deleteWidget = (widgetId) => {}
+export const deleteWidget = (widgetId) =>
+    fetch(`${baseUrl}/widgets/${widgetId}`, {
+            method: "DELETE",
+        })
+        .then(response => response.json())
 
 
 

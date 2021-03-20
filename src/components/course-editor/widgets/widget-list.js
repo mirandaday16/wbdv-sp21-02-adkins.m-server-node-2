@@ -10,7 +10,9 @@ const WidgetList = (
         widgets = [],
         findAllWidgets,
         findWidgetsForTopic,
-        createWidgetForTopic
+        createWidgetForTopic,
+        updateWidget,
+        deleteWidget
     }) => {
     const {topicId} = useParams();
     const [selectedWidget, setSelectedWidget] = useState({})
@@ -28,9 +30,15 @@ const WidgetList = (
                         {
                             selectedWidget.id === widget.id &&
                             <>
-                                <i onClick={() => setSelectedWidget({})}
+                                <i onClick={() => {
+                                    setSelectedWidget({})
+                                    updateWidget(widget)
+                                }}
                                    className="fas fa-check mda-padded-icon mda-toggle-icon float-right"></i>
-                                <i onClick={() => setSelectedWidget(widget)}
+                                <i onClick={() => {
+                                    setSelectedWidget(widget)
+                                    deleteWidget(widget)
+                                }}
                                    className="fas fa-trash mda-padded-icon mda-toggle-icon float-right"></i>
                             </>
                         }
@@ -84,7 +92,14 @@ const dtpm = (dispatch) => (
                 type: "CREATE_WIDGET",
                 widget: widget
             }))
-    }
+    },
+    deleteWidget: (widget) => {
+        widgetsService.deleteWidget(widget._id)
+            .then(status => dispatch({
+                type: 'DELETE_WIDGET',
+                widgetToDelete: widget
+            }))
+    },
 }
 )
 
