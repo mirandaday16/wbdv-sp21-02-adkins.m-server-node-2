@@ -13,8 +13,8 @@ const WidgetList = (
     }) => {
     const {topicId} = useParams();
     useEffect(() => {
-        findWidgetsForTopic()
-    }, [])
+        findWidgetsForTopic(topicId)
+    }, [topicId])
     return(
         <div className="mda-widget-window">
             <ul className="list-group">

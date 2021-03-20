@@ -1,5 +1,5 @@
 const initialState = {
-    widgets: [1, 2, 3]
+    widgets: []
 }
 
 const widgetReducer = (state=initialState, action) => {

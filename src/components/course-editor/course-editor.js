@@ -58,7 +58,9 @@ const CourseEditor = ({props}) => {
                         {/*Should only be visible when a lesson is selected*/}
                         <TopicPills props={props}/>
                     </Route>
-                        <WidgetList/>
+                        <Route path="/courses/:layout/editor/:courseId/:moduleId/:lessonId/:topicId">
+                            <WidgetList/>
+                        </Route>
                     </div>
                 </div>
             </div>
