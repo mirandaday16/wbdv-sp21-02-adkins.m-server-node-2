@@ -53,7 +53,7 @@ const CourseEditor = ({props}) => {
                 </div>
                 <div class="row mda-widget-body">
                     <ModuleList props={props}/>
-                    <div className="col-8 mda-page-background">
+                    <div className="col-9 mda-page-background">
                     <Route path="/courses/:layout/editor/:courseId/:moduleId/:lessonId">
                         {/*Should only be visible when a lesson is selected*/}
                         <TopicPills props={props}/>

@@ -20,7 +20,7 @@ const ModuleList = (
     const path = location["pathname"]
     const layout = path.includes("grid") ? "grid" : "table"
     return (
-        <div className="col-4">
+        <div className="col-3">
             <ul className="modules-list-group">
                 {
                     myModules.map(module =>
