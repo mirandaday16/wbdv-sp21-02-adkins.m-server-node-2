@@ -8,6 +8,17 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget}) => {
         <>{
             editing &&
             <>
+                <i onClick={() => {
+                    updateWidget(widget.id, cachedWidget)
+                    setEditing(false)
+                }}
+                   className="fas fa-check mda-padded-icon mda-toggle-icon float-right"></i>
+                <i onClick={() => {
+                    deleteWidget(widget.id)
+                    setEditing(false)
+                }
+                }
+                   className="fas fa-trash mda-padded-icon mda-toggle-icon float-right"></i>
                 <input value={cachedWidget.text}
                        onChange={(e) =>
                            setCachedWidget({
@@ -29,32 +40,20 @@ const HeadingWidget = ({widget, updateWidget, deleteWidget}) => {
                     <option value={5}>Heading 5</option>
                     <option value={6}>Heading 6</option>
                 </select>
-                <i onClick={() => {
-                    updateWidget(widget.id, cachedWidget)
-                    setEditing(false)
-                }}
-                   className="fas fa-check mda-padded-icon mda-toggle-icon float-right"></i>
-                <i onClick={() => {
-                    deleteWidget(widget.id)
-                    setEditing(false)
-                }
-                }
-                   className="fas fa-trash mda-padded-icon mda-toggle-icon float-right"></i>
             </>
         }
             {
                 !editing &&
                 <div>
+                    <i onClick={() => setEditing(true)}
+                       className="fas fa-cog mda-padded-icon mda-toggle-icon float-right"></i>
+
                     {widget.size == 1 && <h1 className="mda-h1">{widget.text}</h1>}
                     {widget.size == 2 && <h2 className="mda-h2">{widget.text}</h2>}
                     {widget.size == 3 && <h3 className="mda-h3">{widget.text}</h3>}
                     {widget.size == 4 && <h4 className="mda-h4">{widget.text}</h4>}
                     {widget.size == 5 && <h5 className="mda-h5">{widget.text}</h5>}
                     {widget.size == 6 && <h6 className="mda-h6">{widget.text}</h6>}
-
-                    <i onClick={() => setEditing(true)}
-                       className="fas fa-cog mda-padded-icon mda-toggle-icon float-right"></i>
-
                 </div>
             }
 

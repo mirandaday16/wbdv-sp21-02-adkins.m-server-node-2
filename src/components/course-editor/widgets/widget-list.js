@@ -36,7 +36,9 @@ const WidgetList = (
                         {
                             widget.type === "PARAGRAPH" &&
                             <ParagraphWidget
-                                widget={widget}/>
+                                widget={widget}
+                                updateWidget={updateWidget}
+                                deleteWidget={deleteWidget}/>
                         }
                     </li>
                 )}
