@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:8080/api"
+const baseUrl = process.env.REACT_APP_WIDGET_URL
 
 export const createWidget = (topicId, widget) =>
     fetch(`${baseUrl}/topics/${topicId}/widgets`, {
