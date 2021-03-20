@@ -61,6 +61,13 @@ code {
   line-height: normal;
 }
 
+.mda-h2 {
+  color: var(--primary-dark);
+  font-family: "Arvo", sans-serif;
+  font-style: italic;
+  line-height: normal;
+}
+
 .mda-h3 {
   color: var(--secondary);
   font-family: "Arvo", sans-serif;

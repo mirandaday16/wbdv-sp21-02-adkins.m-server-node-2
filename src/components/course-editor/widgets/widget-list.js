@@ -9,7 +9,8 @@ const WidgetList = (
     {
         widgets=[],
         findAllWidgets,
-        findWidgetsForTopic
+        findWidgetsForTopic,
+        createWidgetForTopic
     }) => {
     const {topicId} = useParams();
     useEffect(() => {
@@ -17,6 +18,7 @@ const WidgetList = (
     }, [topicId])
     return(
         <div className="mda-widget-window">
+            <i onClick={() => createWidgetForTopic(topicId)} className="fas fa-2x fa-plus-circle mda-padded-icon mda-toggle-icon float-right"></i>
             <ul className="list-group">
                 {widgets.map(widget =>
                 <li className="list-group-item"
@@ -55,6 +57,14 @@ const dtpm = (dispatch) => ({
             .then(widgets => dispatch({
                 type: "FIND_WIDGETS_FOR_TOPIC",
                 widgets: widgets
+            }))
+    },
+    createWidgetForTopic: (topicId) => {
+        const defaultWidget = {type: "HEADING", size: 1, text: "New Widget"};
+        widgetsService.createWidget(topicId, defaultWidget)
+            .then(widget => dispatch({
+                type: "CREATE_WIDGET",
+                widget: widget
             }))
     }
 })

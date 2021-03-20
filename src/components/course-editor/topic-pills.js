@@ -57,7 +57,6 @@ const dtpm = (dispatch) => ({
                     topic: topicFromServer
                 }))
     },
-    // TODO: Implement topic creation on front end
     deleteTopic: (item) => {
         topicsService.deleteTopic(item._id)
         .then(status => dispatch({

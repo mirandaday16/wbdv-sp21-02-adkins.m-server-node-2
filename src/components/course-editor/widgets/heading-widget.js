@@ -3,7 +3,7 @@ import React from 'react'
 const HeadingWidget = ({widget}) => {
     return(
         <div>
-            <h1 className="mda-h1">{widget.text}</h1>
+            <h2 className="mda-h2">{widget.text}</h2>
         </div>
     )
 }
