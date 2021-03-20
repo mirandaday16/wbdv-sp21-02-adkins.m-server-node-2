@@ -15,7 +15,6 @@ const WidgetList = (
         deleteWidget
     }) => {
     const {topicId} = useParams();
-    const [selectedWidget, setSelectedWidget] = useState({})
     useEffect(() => {
         findWidgetsForTopic(topicId)
     }, [topicId])
@@ -28,32 +27,16 @@ const WidgetList = (
                     <li className="list-group-item"
                         key={widget.id}>
                         {
-                            selectedWidget.id === widget.id &&
-                            <>
-                                <i onClick={() => {
-                                    setSelectedWidget({})
-                                    updateWidget(widget)
-                                }}
-                                   className="fas fa-check mda-padded-icon mda-toggle-icon float-right"></i>
-                                <i onClick={() =>
-                                    // setSelectedWidget({})
-                                    deleteWidget(widget.id)
-                                }
-                                   className="fas fa-trash mda-padded-icon mda-toggle-icon float-right"></i>
-                            </>
-                        }
-                        {
-                            selectedWidget.id !== widget.id &&
-                            <i onClick={() => setSelectedWidget(widget)}
-                               className="fas fa-cog mda-padded-icon mda-toggle-icon float-right"></i>
-                        }
-                        {
                             widget.type === "HEADING" &&
-                            <HeadingWidget widget={widget}/>
+                            <HeadingWidget
+                                widget={widget}
+                                updateWidget={updateWidget}
+                                deleteWidget={deleteWidget}/>
                         }
                         {
                             widget.type === "PARAGRAPH" &&
-                            <ParagraphWidget widget={widget}/>
+                            <ParagraphWidget
+                                widget={widget}/>
                         }
                     </li>
                 )}
@@ -100,6 +83,14 @@ const dtpm = (dispatch) => (
                 widgetToDelete: widgetId
             }))
     },
+    updateWidget: (widgetId, updatedWidget) => {
+        widgetsService.updateWidget(widgetId, updatedWidget)
+            .then(widget => dispatch({
+                type: "UPDATE_WIDGET",
+                widget: updatedWidget,
+                id: widgetId
+            }))
+    }
 }
 )
 

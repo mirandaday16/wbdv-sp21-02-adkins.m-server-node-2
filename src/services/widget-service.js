@@ -21,7 +21,15 @@ export const findAllWidgets = () =>
 
 export const findWidgetById = (widgetId) => {}
 
-export const updateWidget = (widgetId, widget) => {}
+export const updateWidget = (widgetId, widget) =>
+    fetch(`${baseUrl}/widgets/${widgetId}`, {
+        method: "PUT",
+        body: JSON.stringify(widget),
+        headers: {
+            'content-type': 'application/json'
+        }
+    })
+        .then(response => response.json())
 
 export const deleteWidget = (widgetId) =>
     fetch(`${baseUrl}/widgets/${widgetId}`, {

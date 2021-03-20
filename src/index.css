@@ -75,6 +75,28 @@ code {
   font-weight: bold;
 }
 
+.mda-h4 {
+  color: var(--primary);
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+  line-height: normal;
+}
+
+.mda-h5 {
+  color: var(--primary-dark);
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.mda-h6 {
+  color: var(--secondary);
+  font-family: "Lato", sans-serif;
+  line-height: normal;
+  font-weight: bold;
+}
+
 .mda-link-text {
   font-family: "Lato", sans-serif;
   font-weight: bold;

@@ -1,10 +1,20 @@
 import React from 'react'
 
-const ParagraphWidget = ({widget}) => {
-    return(
-        <p>
-            {widget.text}
-        </p>
+const ParagraphWidget = ({widget, editing}) => {
+    return (
+
+        <>{
+            editing &&
+            <textarea className="form-control"></textarea>
+        }
+            {
+                !editing &&
+                <p>
+                    {widget.text}
+                </p>
+            }
+
+        </>
     )
 }
 
