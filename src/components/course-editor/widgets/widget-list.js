@@ -35,10 +35,10 @@ const WidgetList = (
                                     updateWidget(widget)
                                 }}
                                    className="fas fa-check mda-padded-icon mda-toggle-icon float-right"></i>
-                                <i onClick={() => {
-                                    setSelectedWidget(widget)
-                                    deleteWidget(widget)
-                                }}
+                                <i onClick={() =>
+                                    // setSelectedWidget({})
+                                    deleteWidget(widget.id)
+                                }
                                    className="fas fa-trash mda-padded-icon mda-toggle-icon float-right"></i>
                             </>
                         }
@@ -93,11 +93,11 @@ const dtpm = (dispatch) => (
                 widget: widget
             }))
     },
-    deleteWidget: (widget) => {
-        widgetsService.deleteWidget(widget._id)
+    deleteWidget: (widgetId) => {
+        widgetsService.deleteWidget(widgetId)
             .then(status => dispatch({
                 type: 'DELETE_WIDGET',
-                widgetToDelete: widget
+                widgetToDelete: widgetId
             }))
     },
 }
