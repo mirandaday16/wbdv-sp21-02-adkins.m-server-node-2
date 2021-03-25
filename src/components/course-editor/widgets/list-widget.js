@@ -48,15 +48,30 @@ const ListWidget = ({widget, updateWidget, deleteWidget}) => {
                     <i onClick={() => setEditing(true)}
                        className="fas fa-cog mda-padded-icon mda-toggle-icon float-right"></i>
 
-                    <ul>
-                        {cachedWidget.text.split("\n").map((item) => {
-                            return (
-                                <li>
-                                    {item}
-                                </li>
-                            )
-                        })}
-                    </ul>
+                    {
+                        cachedWidget.ordered &&
+                        <ol>
+                            {cachedWidget.text.split("\n").map((item) => {
+                                return (
+                                    <li>
+                                        {item}
+                                    </li>
+                                )
+                            })}
+                        </ol>
+                    }
+                    {
+                        !widget.ordered &&
+                        <ul>
+                            {cachedWidget.text.split("\n").map((item) => {
+                                return (
+                                    <li>
+                                        {item}
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    }
                 </>
             }
         </>
