@@ -20,11 +20,26 @@ const ListWidget = ({widget, updateWidget, deleteWidget}) => {
                         }
                            className="fas fa-trash mda-padded-icon mda-toggle-icon float-right"></i>
 
-                        <input type="checkbox"/>
+                        <input type="checkbox"
+                               checked={cachedWidget.ordered}
+                               onChange={(e) =>
+                                   setCachedWidget({
+                                       ...cachedWidget,
+                                       ordered: e.target.checked
+                                   })}/>
                         Ordered
                         <br/>
                         Item List
-                        <textarea className="form-control"></textarea>
+                        <textarea
+                            value={cachedWidget.text}
+                            className="form-control"
+                            rows="10"
+                            onChange={(e) =>
+                                setCachedWidget({
+                                    ...cachedWidget,
+                                    text: e.target.value
+                                })}>
+                        </textarea>
                     </>
             }
             {!
@@ -34,10 +49,13 @@ const ListWidget = ({widget, updateWidget, deleteWidget}) => {
                        className="fas fa-cog mda-padded-icon mda-toggle-icon float-right"></i>
 
                     <ul>
-                        <li>123</li>
-                        <li>234</li>
-                        <li>345</li>
-                        <li>456</li>
+                        {cachedWidget.text.split("\n").map((item) => {
+                            return (
+                                <li>
+                                    {item}
+                                </li>
+                            )
+                        })}
                     </ul>
                 </>
             }
