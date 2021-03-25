@@ -8,6 +8,18 @@ const ListWidget = ({widget, updateWidget, deleteWidget}) => {
             {
                 editing &&
                     <>
+                        <i onClick={() => {
+                            updateWidget(widget.id, cachedWidget)
+                            setEditing(false)
+                        }}
+                           className="fas fa-check mda-padded-icon mda-toggle-icon float-right"></i>
+                        <i onClick={() => {
+                            deleteWidget(widget.id)
+                            setEditing(false)
+                        }
+                        }
+                           className="fas fa-trash mda-padded-icon mda-toggle-icon float-right"></i>
+
                         <input type="checkbox"/>
                         Ordered
                         <br/>
@@ -18,6 +30,9 @@ const ListWidget = ({widget, updateWidget, deleteWidget}) => {
             {!
                 editing &&
                 <>
+                    <i onClick={() => setEditing(true)}
+                       className="fas fa-cog mda-padded-icon mda-toggle-icon float-right"></i>
+
                     <ul>
                         <li>123</li>
                         <li>234</li>
