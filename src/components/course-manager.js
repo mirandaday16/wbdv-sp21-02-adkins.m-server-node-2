@@ -6,13 +6,7 @@ import NavigationBar from "./navigation-bar";
 import {Route, Link} from "react-router-dom";
 import courseService from "../services/course-service";
 import QuizzesList from "./quizzes/quizzes-list";
-import {combineReducers, createStore} from "redux";
-import moduleReducer from "../reducers/modules-reducer";
-import lessonReducer from "../reducers/lesson-reducer";
-import topicReducer from "../reducers/topic-reducer";
-import widgetReducer from "../reducers/widget-reducer";
-import quizReducer from "../reducers/quiz-reducer";
-import {Provider} from "react-redux/lib/alternate-renderers";
+import Quiz from "./quizzes/quiz"
 
 class CourseManager extends React.Component {
 
@@ -111,7 +105,12 @@ class CourseManager extends React.Component {
                         <QuizzesList/>
                     </div>
                 </Route>
-
+                <Route path="/courses/:courseId/quizzes/:quizId" exact={true}>
+                    <NavigationBar addCourse={this.addCourse}/>
+                    <div className="mda-page-content">
+                        <Quiz/>
+                    </div>
+                </Route>
             </div>
         )
     }

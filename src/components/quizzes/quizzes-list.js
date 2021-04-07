@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import {Link, useParams} from "react-router-dom";
 import quizService from '../../services/quiz-service'
 import {connect} from "react-redux";
 
@@ -12,6 +13,7 @@ const QuizzesList = (
     useEffect(() => {
         findAllQuizzes()
     }, [findAllQuizzes])
+    const {courseId} = useParams()
     return (
             <div>
                 <h2>
@@ -22,7 +24,9 @@ const QuizzesList = (
                         quizzes && quizzes.map((quiz => {
                             return (
                                 <li>
-                                    {quiz.title}
+                                    <Link to={`/courses/${courseId}/quizzes/${quiz._id}`}>
+                                        {quiz.title}
+                                    </Link>
                                 </li>
                             )
                         }))
