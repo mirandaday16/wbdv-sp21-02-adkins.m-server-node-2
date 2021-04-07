@@ -21,7 +21,7 @@ const QuizzesList = (
                 </h2>
                 <ul>
                     {
-                        quizzes && quizzes.map((quiz => {
+                        quizzes.map((quiz => {
                             return (
                                 <li>
                                     <Link to={`/courses/${courseId}/quizzes/${quiz._id}`}>

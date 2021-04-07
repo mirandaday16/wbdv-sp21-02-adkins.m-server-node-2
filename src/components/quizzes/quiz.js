@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
 import questionService from "../../services/question-service";
+import {connect} from "react-redux";
 
 const Quiz = (
     questions = [],
@@ -9,7 +10,7 @@ const Quiz = (
     const {quizId} = useParams()
     useEffect(() => {
         findQuestionsForQuiz(quizId)
-    }, [findQuestionsForQuiz])
+    }, [])
     return (
         <div>
             <h3>
@@ -17,13 +18,14 @@ const Quiz = (
             </h3>
             <ul>
                 {
-                    questions && questions.map((question => {
-                        return (
-                            <li>
-                                    {question.question}
-                            </li>
-                        )
-                    }))
+                    // questions.map((question => {
+                    //     return (
+                    //         <li>
+                    //                 {question.question}
+                    //         </li>
+                    //     )
+                    // }))
+                    quizId
                 }
             </ul>
         </div>
@@ -48,4 +50,5 @@ const dtpm = (dispatch) => (
     }
 )
 
-export default Quiz
+export default connect(stpm, dtpm)
+(Quiz)
