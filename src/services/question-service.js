@@ -1,8 +1,14 @@
-const QUIZZES_URL = 'http://localhost:3000/api/quizzes';
-const findQuestionsForQuiz = (qid) =>
+const QUIZZES_URL = 'http://localhost:4000/api/quizzes';
+export const findQuestionsForQuiz = (qid) =>
     fetch(`${QUIZZES_URL}/${qid}/questions`)
         .then(response => response.json())
 
-export default {
+const api = {
     findQuestionsForQuiz
 }
+
+export default api
+
+// export default {
+//     findQuestionsForQuiz
+// }

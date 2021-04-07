@@ -4,8 +4,10 @@ import questionService from "../../services/question-service";
 import {connect} from "react-redux";
 
 const Quiz = (
-    questions = [],
-    findQuestionsForQuiz
+    {
+        questions = [],
+        findQuestionsForQuiz
+    }
 ) => {
     const {quizId} = useParams()
     useEffect(() => {
@@ -18,14 +20,14 @@ const Quiz = (
             </h3>
             <ul>
                 {
-                    // questions.map((question => {
-                    //     return (
-                    //         <li>
-                    //                 {question.question}
-                    //         </li>
-                    //     )
-                    // }))
-                    quizId
+                    questions.map((question => {
+                        return (
+                            <li>
+                                    {question.question}
+                            </li>
+                        )
+                    }))
+                    // quizId
                 }
             </ul>
         </div>
