@@ -5,6 +5,7 @@ import CourseEditor from "./course-editor/course-editor";
 import NavigationBar from "./navigation-bar";
 import {Route, Link} from "react-router-dom";
 import courseService from "../services/course-service";
+import QuizzesList from "./quizzes/quizzes-list";
 
 class CourseManager extends React.Component {
 
@@ -95,7 +96,13 @@ class CourseManager extends React.Component {
                     "/courses/:layout/editor/:courseId/:moduleId/:lessonId/:topicId/:widgetId",
                 ]}
                        render={(props) =>
-                               <CourseEditor props={props}/>}>
+                           <CourseEditor props={props}/>}>
+                </Route>
+                <Route path="/courses/:courseId/quizzes" exact={true}>
+                    <NavigationBar addCourse={this.addCourse}/>
+                    <div className="mda-page-content">
+                        <QuizzesList/>
+                    </div>
                 </Route>
 
             </div>
