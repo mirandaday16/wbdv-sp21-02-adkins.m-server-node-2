@@ -8,21 +8,18 @@ import {Provider} from "react-redux";
 import LessonTabs from "./lesson-tabs";
 import TopicPills from "./topic-pills";
 import topicReducer from "../../reducers/topic-reducer";
-import moduleService from '../../services/module-service'
 import WidgetList from "./widgets/widget-list";
 import widgetReducer from "../../reducers/widget-reducer";
-import quizReducer from "../../reducers/quiz-reducer";
 
 // const store = createStore(moduleReducer)
-const reducer = combineReducers({
-    moduleReducer: moduleReducer,
-    lessonReducer: lessonReducer,
-    topicReducer: topicReducer,
-    widgetReducer: widgetReducer,
-    quizReducer: quizReducer
-})
-
-const store = createStore(reducer)
+// const reducer = combineReducers({
+//     moduleReducer: moduleReducer,
+//     lessonReducer: lessonReducer,
+//     topicReducer: topicReducer,
+//     widgetReducer: widgetReducer,
+// })
+//
+// const store = createStore(reducer)
 
 // componentDidUpdate() {
 //     moduleService.findModulesForCourse()
@@ -36,7 +33,8 @@ const CourseEditor = ({props}) => {
     const location = useLocation();
     const path = location["pathname"]
     const goBackPath = path.includes("grid") ? "/courses/grid" : "/courses/table"
-    return (<Provider store={store}>
+    return (
+        // <Provider store={store}>
         <div className="mda-page-content">
             <div class="container shadow mda-widget-window">
                 {/*// Headline*/}
@@ -67,7 +65,8 @@ const CourseEditor = ({props}) => {
                 </div>
             </div>
         </div>
-    </Provider>)
+    // </Provider>
+)
 }
 
 export default CourseEditor

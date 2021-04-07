@@ -1,28 +1,38 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import quizService from '../../services/quiz-service'
 import {connect} from "react-redux";
 
 const QuizzesList = (
     {
-        quizzes= [],
+        quizzes = [],
         findAllQuizzes,
         findQuizById
     }
 ) => {
     useEffect(() => {
         findAllQuizzes()
-    }, [])
-    return(
-        <div>
-            <h2>
-                Quizzes
-            </h2>
-        </div>
+    }, [findAllQuizzes])
+    return (
+            <div>
+                <h2>
+                    Quizzes
+                </h2>
+                <ul>
+                    {
+                        quizzes && quizzes.map((quiz => {
+                            return (
+                                <li>
+                                    {quiz.title}
+                                </li>
+                            )
+                        }))
+                    }
+                </ul>
+            </div>
     )
 }
 
-const stpm = (state) =>
-{
+const stpm = (state) => {
     return {
         quizzes: state.quizReducer.quizzes
     }
