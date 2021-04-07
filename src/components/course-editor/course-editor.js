@@ -11,13 +11,15 @@ import topicReducer from "../../reducers/topic-reducer";
 import moduleService from '../../services/module-service'
 import WidgetList from "./widgets/widget-list";
 import widgetReducer from "../../reducers/widget-reducer";
+import quizReducer from "../../reducers/quiz-reducer";
 
 // const store = createStore(moduleReducer)
 const reducer = combineReducers({
     moduleReducer: moduleReducer,
     lessonReducer: lessonReducer,
     topicReducer: topicReducer,
-    widgetReducer: widgetReducer
+    widgetReducer: widgetReducer,
+    quizReducer: quizReducer
 })
 
 const store = createStore(reducer)
