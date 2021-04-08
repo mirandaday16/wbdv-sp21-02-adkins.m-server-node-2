@@ -1,16 +1,34 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 const TrueFalseQuestion = ({question}) => {
+    const [chosenAnswer, setChosenAnswer] = useState("")
     return (
         <>
             <li>
                 <h4>
-                    {question.title}
-                </h4>
-                <p>
                     {question.question}
-                </p>
+                </h4>
+                <span className="h6 mda-body-text">
+                    <div className="row">
+                    <label>
+                        <input type="radio"
+                               name={question._id}
+                               onClick={() => setChosenAnswer("true")}
+                        /> True
+                    </label>
+                </div>
+                <div className="row">
+                    <label>
+                        <input type="radio"
+                               name={question._id}
+                               onClick={() => setChosenAnswer("false")}
+                        /> False
+                    </label>
+                </div>
+                Your answer: {chosenAnswer}
+                </span>
             </li>
+            <hr/>
         </>
     )
 }

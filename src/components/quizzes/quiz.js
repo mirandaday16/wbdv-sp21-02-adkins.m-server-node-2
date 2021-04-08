@@ -16,16 +16,17 @@ const Quiz = (
     }, [])
     return (
         <div>
-            <h3>
+            <h3 className="mda-h3">
                 Quiz {quizId}
             </h3>
-            <ul>
+            <hr/>
+            <ol className="mda-h4">
                 {
                     questions.map((question =>
                         <Question question={question}/>
                     ))
                 }
-            </ul>
+            </ol>
         </div>
     )
 }
