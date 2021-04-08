@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
 import questionService from "../../services/question-service";
 import {connect} from "react-redux";
+import Question from "./questions";
 
 const Quiz = (
     {
@@ -22,14 +23,7 @@ const Quiz = (
                 {
                     questions.map((question => {
                         return (
-                            <li>
-                                <h4>
-                                    {question.title}
-                                </h4>
-                                <p>
-                                    {question.question}
-                                </p>
-                            </li>
+                            <Question question={question}/>
                         )
                     }))
                 }
