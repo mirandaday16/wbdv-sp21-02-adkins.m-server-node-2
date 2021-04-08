@@ -21,11 +21,9 @@ const Quiz = (
             </h3>
             <ul>
                 {
-                    questions.map((question => {
-                        return (
+                    questions.map((question =>
                             <Question question={question}/>
-                        )
-                    }))
+                    ))
                 }
             </ul>
         </div>
