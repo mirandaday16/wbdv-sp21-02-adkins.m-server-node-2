@@ -16,22 +16,28 @@ const QuizzesList = (
     const {courseId} = useParams()
     return (
             <div>
-                <h2>
+                <h2 className="mda-h2">
                     Quizzes
                 </h2>
-                <ul>
+                <br/>
+                <ul className="list-group">
                     {
                         quizzes.map((quiz => {
                             return (
-                                <li>
+                                <li className="list-group-item mda-h4">
+                                    {quiz.title}
                                     <Link to={`/courses/${courseId}/quizzes/${quiz._id}`}>
-                                        {quiz.title}
+                                        <button className="btn mda-btn float-right">
+                                            Start
+                                        </button>
                                     </Link>
                                 </li>
                             )
                         }))
                     }
                 </ul>
+                <br/>
+                <br/>
             </div>
     )
 }

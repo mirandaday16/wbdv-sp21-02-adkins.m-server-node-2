@@ -7,6 +7,10 @@ const TrueFalseQuestion = ({question}) => {
             <li>
                 <h4>
                     {question.question}
+                    {
+                        question.correct === chosenAnswer &&
+                        <i className="fas fa-check mda-padded-icon float-right"></i>
+                    }
                 </h4>
                 <span className="h6 mda-body-text">
                     <div className="row">
