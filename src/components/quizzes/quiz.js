@@ -27,20 +27,6 @@ const Quiz = (
                     ))
                 }
             </ol>
-            <br/>
-            <div className="row">
-                <div className="col-4">
-
-                </div>
-                <div className="col-4 mda-center-in-div">
-                    <button className="btn mda-btn">
-                        Grade
-                    </button>
-                </div>
-                <div className="col-4">
-
-                </div>
-            </div>
 
             <br/>
             <br/>

@@ -263,6 +263,17 @@ code {
   padding-right: 10px;
 }
 
+.mda-padded-icon-danger {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: var(--danger)
+}
+
+.mda-padded-radio-button {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 .mda-padding-vertical {
   padding-top: 10px;
 }
