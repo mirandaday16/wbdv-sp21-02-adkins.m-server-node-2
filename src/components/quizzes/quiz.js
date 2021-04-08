@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {useParams} from "react-router-dom";
 import questionService from "../../services/question-service";
 import {connect} from "react-redux";
-import Question from "./questions";
+import Question from "./questions/question";
 
 const Quiz = (
     {
@@ -22,7 +22,7 @@ const Quiz = (
             <ul>
                 {
                     questions.map((question =>
-                            <Question question={question}/>
+                        <Question question={question}/>
                     ))
                 }
             </ul>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Question = ({question}) => {
+const TrueFalseQuestion = ({question}) => {
     return (
         <>
             <li>
@@ -15,4 +15,4 @@ const Question = ({question}) => {
     )
 }
 
-export default Question
+export default TrueFalseQuestion
