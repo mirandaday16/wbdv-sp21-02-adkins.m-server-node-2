@@ -23,11 +23,15 @@ const Quiz = (
                     questions.map((question => {
                         return (
                             <li>
+                                <h4>
+                                    {question.title}
+                                </h4>
+                                <p>
                                     {question.question}
+                                </p>
                             </li>
                         )
                     }))
-                    // quizId
                 }
             </ul>
         </div>
