@@ -8,10 +8,10 @@ export const findQuizById = (qid) => {
         .then(response => response.json())
 }
 
-export const submitQuiz = (quizId, score, answers) => {
-    return fetch(`${QUIZZES_URL}/${quizId}/attempts`, {
+export const submitQuiz = (qid, answers) => {
+    return fetch(`${QUIZZES_URL}/${qid}/attempts`, {
         method: 'POST',
-        body: JSON.stringify({score: score, quiz: quizId, answers: answers}),
+        body: JSON.stringify(answers),
         headers: {
             'content-type': 'application/json'
         }

@@ -16,30 +16,13 @@ const Quiz = (
         findQuestionsForQuiz(quizId)
     }, [])
 
-    const [answers, setAnswers] = useState([]);
+    const answers = [];
     const addToAnswers = (question, userAnswer) => {
         const answerObject = {
             ...question,
             answer: userAnswer
         }
-        setAnswers({
-            ...answers,
-            answerObject
-        })
-        console.log(answers)
-    }
-
-    const [score, setScore] = useState(0);
-    const calculateScore = () => {
-        let total = 0;
-        let userAnswer;
-        for (userAnswer in answers) {
-            const correctAnswer = questions.find(question => question._id === userAnswer._id)
-            if (correctAnswer.answer === userAnswer.answer) {
-                total += 1;
-            }
-        }
-         setScore(total / questions.length)
+        answers.push(answerObject)
     }
 
     return (
@@ -61,8 +44,8 @@ const Quiz = (
                 <div className="col-4 mda-center-in-div">
                     <button className="btn mda-btn"
                             onClick={() => {
-                                calculateScore();
-                                quizService.submitQuiz(quizId, score, answers);
+                                console.log(JSON.stringify(answers))
+                                quizService.submitQuiz(quizId, answers);
                             }}>
                         Grade
                     </button>
