@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import questionService from "../../services/question-service";
 import quizService from "../../services/quiz-service"
@@ -8,7 +8,6 @@ import Question from "./questions/question";
 const Quiz = (
     {
         questions = [],
-        submitQuiz,
         findQuestionsForQuiz
     }
 ) => {
@@ -16,6 +15,33 @@ const Quiz = (
     useEffect(() => {
         findQuestionsForQuiz(quizId)
     }, [])
+
+    const [answers, setAnswers] = useState([]);
+    const addToAnswers = (question, userAnswer) => {
+        const answerObject = {
+            ...question,
+            answer: userAnswer
+        }
+        setAnswers({
+            ...answers,
+            answerObject
+        })
+        console.log(answers)
+    }
+
+    const [score, setScore] = useState(0);
+    const calculateScore = () => {
+        let total = 0;
+        let userAnswer;
+        for (userAnswer in answers) {
+            const correctAnswer = questions.find(question => question._id === userAnswer._id)
+            if (correctAnswer.answer === userAnswer.answer) {
+                total += 1;
+            }
+        }
+         setScore(total / questions.length)
+    }
+
     return (
         <div>
             <h3 className="mda-h3">
@@ -25,7 +51,7 @@ const Quiz = (
             <ol className="mda-h4">
                 {
                     questions.map((question =>
-                        <Question question={question}/>
+                        <Question question={question} addToAnswers={addToAnswers}/>
                     ))
                 }
             </ol>
@@ -34,7 +60,10 @@ const Quiz = (
             <div className="row">
                 <div className="col-4 mda-center-in-div">
                     <button className="btn mda-btn"
-                            onClick={() => submitQuiz(quizId, questions)}>
+                            onClick={() => {
+                                calculateScore();
+                                quizService.submitQuiz(quizId, score, answers);
+                            }}>
                         Grade
                     </button>
                 </div>
@@ -62,12 +91,8 @@ const dtpm = (dispatch) => (
                     type: "FIND_QUESTIONS_FOR_QUIZ",
                     questions: questions
                 }))
-        },
-        submitQuiz: (quizId, questions) => {
-            quizService.submitQuiz(quizId, questions)
-                .then(response => response.json())
-                .then(result => console.log(result))
         }
+
     }
 
 )

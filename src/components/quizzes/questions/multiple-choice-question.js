@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const MultipleChoiceQuestion = ({question}) => {
+const MultipleChoiceQuestion = ({question, addToAnswers}) => {
     const [chosenAnswer, setChosenAnswer] = useState("")
     const [graded, setGraded] = useState(false)
     const highlight = (q) => {
@@ -49,6 +49,23 @@ const MultipleChoiceQuestion = ({question}) => {
                 </span>
             </li>
             <br/>
+            <div className="row">
+                <div className="col-4 mda-center-in-div">
+                    {
+                        !graded &&
+                        <button className="btn mda-btn"
+                                onClick={() => {
+                                    setGraded(true);
+                                    addToAnswers(question, chosenAnswer)
+                                }}>
+                            Confirm
+                        </button>
+                    }
+
+                </div>
+                <div className="col-8">
+                </div>
+            </div>
             <hr/>
         </>
     )
