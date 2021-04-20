@@ -52,16 +52,6 @@ const TrueFalseQuestion = ({question}) => {
                 </span>
             </li>
             <br/>
-            <div className="row">
-                <div className="col-4 mda-center-in-div">
-                    <button className="btn mda-btn"
-                            onClick={() => setGraded(true)}>
-                        Grade
-                    </button>
-                </div>
-                <div className="col-8">
-                </div>
-            </div>
             <hr/>
         </>
     )
