@@ -12,6 +12,7 @@ const Quiz = (
     }
 ) => {
     const {quizId} = useParams()
+    const [finished, setFinished] = useState(false)
     useEffect(() => {
         findQuestionsForQuiz(quizId)
     }, [])
@@ -34,7 +35,7 @@ const Quiz = (
             <ol className="mda-h4">
                 {
                     questions.map((question =>
-                        <Question question={question} addToAnswers={addToAnswers}/>
+                            <Question question={question} addToAnswers={addToAnswers}/>
                     ))
                 }
             </ol>
@@ -46,11 +47,18 @@ const Quiz = (
                             onClick={() => {
                                 console.log(JSON.stringify(answers))
                                 quizService.submitQuiz(quizId, answers);
+                                setFinished(true)
                             }}>
                         Grade
                     </button>
                 </div>
                 <div className="col-8">
+                    {
+                        finished &&
+                        <span className="mda-h5 float-right">
+                            Quiz sumbitted!
+                        </span>
+                    }
                 </div>
             </div>
             <br/>
