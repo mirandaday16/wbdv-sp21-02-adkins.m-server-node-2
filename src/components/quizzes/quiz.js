@@ -81,7 +81,6 @@ const Quiz = (
                         <div className="mda-widget-window mda-widget-body">
                     <p className="mda-h3 mda-center-in-div">
                         All quiz attempts:
-                        "correct: " + {attempts.length + findLastIndex(attempts, 'answers[0].quizId', quizId)}
                     </p>
                         <ol>
                             {
