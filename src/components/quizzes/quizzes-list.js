@@ -12,8 +12,10 @@ const QuizzesList = (
 ) => {
     useEffect(() => {
         findAllQuizzes()
-    }, [findAllQuizzes])
+    }, [])
+
     const {courseId} = useParams()
+
     return (
             <div>
                 <h2 className="mda-h2">

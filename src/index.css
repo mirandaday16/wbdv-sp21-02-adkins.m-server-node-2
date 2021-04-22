@@ -307,3 +307,9 @@ code {
 input {
   font-family: "Lato", sans-serif;
 }
+
+.mda-highlighted-score {
+  font-weight: bold;
+  color: var(--primary-dark);
+  background-color: var(--primary-light);
+}

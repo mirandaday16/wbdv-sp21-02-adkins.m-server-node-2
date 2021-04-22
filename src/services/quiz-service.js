@@ -21,6 +21,8 @@ export const submitQuiz = (qid, answers) => {
 }
 
 
+
+
 export default {
     findAllQuizzes, findQuizById, submitQuiz
 }

@@ -7,6 +7,7 @@ import topicReducer from "./reducers/topic-reducer";
 import widgetReducer from "./reducers/widget-reducer";
 import quizReducer from "./reducers/quiz-reducer";
 import questionReducer from "./reducers/question-reducer";
+import attemptsReducer from "./reducers/quiz-attempts-reducer";
 import {Provider} from "react-redux";
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
         topicReducer: topicReducer,
         widgetReducer: widgetReducer,
         quizReducer: quizReducer,
-        questionReducer: questionReducer
+        questionReducer: questionReducer,
+        attemptsReducer: attemptsReducer
     })
 
     const store = createStore(reducer)
