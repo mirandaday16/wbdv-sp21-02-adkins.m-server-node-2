@@ -29,6 +29,15 @@ const Quiz = (
         }
         answers.push(answerObject)
     }
+    // Helper function to find last relevant index of array, based on code from
+    // https://stackoverflow.com/questions/40929260/find-last-index-of-element-inside-array-by-certain-condition
+    function findLastIndex(array, searchKey, searchValue) {
+        var index = array.slice().reverse().findIndex(x => x.searchKey === searchValue);
+        var count = array.length - 1
+        var finalIndex = index >= 0 ? count - index : index;
+        console.log(finalIndex)
+        return finalIndex;
+    }
 
     return (
         <div>
@@ -49,9 +58,8 @@ const Quiz = (
                 <div className="col-4 mda-center-in-div">
                     <button className="btn mda-btn"
                             onClick={async () => {
-                                console.log(JSON.stringify(answers))
                                 await quizService.submitQuiz(quizId, answers);
-                                await findAttemptsForQuiz();
+                                await findAttemptsForQuiz(quizId);
                                 setFinished(true)
                             }}>
                         Grade
@@ -73,10 +81,14 @@ const Quiz = (
                         <div className="mda-widget-window mda-widget-body">
                     <p className="mda-h3 mda-center-in-div">
                         All quiz attempts:
+                        "correct: " + {attempts.length + findLastIndex(attempts, 'answers[0].quizId', quizId)}
                     </p>
                         <ol>
-                            {attempts.map((attempt, index) => {
-                                if (index === attempts.length - 1) {
+                            {
+                                // display only attempts that belong to this quiz
+                                attempts.filter(attempt => attempt.answers[0].quizId === quizId).map((attempt) => {
+                                // highlight most recent attempt for this quiz
+                                if (attempt === attempts[attempts.length + findLastIndex(attempts, 'answers[0].quizId', quizId)]){
                                     return (
                                         <li className="mda-highlighted-score">
                                             {attempt.score.toFixed(2)}%
